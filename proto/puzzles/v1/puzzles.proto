@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package puzzles.v1;
+
+option go_package = "github.com/joaomagfreitas/slider-proto/puzzles/v1;puzzles_proto_v1";
+
+message PuzzleCategory {
+  string name = 1;
+  string slug = 2;
+}
+
+message ListPuzzleCategoriesRequest {}
+
+message ListPuzzleCategoriesResponse {
+  repeated PuzzleCategory categories = 1;
+}
+
+service PuzzlesService {
+  rpc ListCategories(ListPuzzleCategoriesRequest) returns (ListPuzzleCategoriesResponse);
+}

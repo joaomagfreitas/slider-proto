@@ -1,0 +1,9 @@
+{
+  "name": "slider-proto",
+  "description": "Proto definitions for Slider SDK",
+  "authors": "joaomagfreitas",
+  "version": "0.0.1",
+  "dependencies": {
+    "@bufbuild/protobuf": "2.12.1"
+  }
+}
