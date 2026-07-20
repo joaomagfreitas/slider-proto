@@ -1,4 +1,4 @@
-module github.com/joaomagfreitas/slider-proto
+module github.com/joaomagfreitas/slider-proto/gen/go
 
 go 1.26.1
 
