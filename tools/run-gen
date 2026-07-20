@@ -4,7 +4,5 @@ root="$(dirname "$0")/.."
 
 (
     cd $root
-    protoc  proto/*.proto \
-        --go_out=. \
-        --go-grpc_out=.
+    buf generate
 )
