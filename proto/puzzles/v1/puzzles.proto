@@ -20,7 +20,7 @@ message PuzzlePack {
 
 message ListPuzzleCategoriesRequest {}
 
-message QueryPuzzlePacksRequest { string category = 1; }
+message QueryPuzzlePacksRequest { optional string category = 1; }
 
 message ListPuzzleCategoriesResponse { repeated PuzzleCategory categories = 1; }
 

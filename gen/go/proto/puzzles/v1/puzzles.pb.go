@@ -195,7 +195,7 @@ func (*ListPuzzleCategoriesRequest) Descriptor() ([]byte, []int) {
 
 type QueryPuzzlePacksRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Category      string                 `protobuf:"bytes,1,opt,name=category,proto3" json:"category,omitempty"`
+	Category      *string                `protobuf:"bytes,1,opt,name=category,proto3,oneof" json:"category,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -231,8 +231,8 @@ func (*QueryPuzzlePacksRequest) Descriptor() ([]byte, []int) {
 }
 
 func (x *QueryPuzzlePacksRequest) GetCategory() string {
-	if x != nil {
-		return x.Category
+	if x != nil && x.Category != nil {
+		return *x.Category
 	}
 	return ""
 }
@@ -344,9 +344,10 @@ const file_proto_puzzles_v1_puzzles_proto_rawDesc = "" +
 	"difficulty\x18\x05 \x01(\tR\n" +
 	"difficulty\x12\x1a\n" +
 	"\bcategory\x18\x06 \x01(\tR\bcategory\"\x1d\n" +
-	"\x1bListPuzzleCategoriesRequest\"5\n" +
-	"\x17QueryPuzzlePacksRequest\x12\x1a\n" +
-	"\bcategory\x18\x01 \x01(\tR\bcategory\"Z\n" +
+	"\x1bListPuzzleCategoriesRequest\"G\n" +
+	"\x17QueryPuzzlePacksRequest\x12\x1f\n" +
+	"\bcategory\x18\x01 \x01(\tH\x00R\bcategory\x88\x01\x01B\v\n" +
+	"\t_category\"Z\n" +
 	"\x1cListPuzzleCategoriesResponse\x12:\n" +
 	"\n" +
 	"categories\x18\x01 \x03(\v2\x1a.puzzles.v1.PuzzleCategoryR\n" +
@@ -398,6 +399,7 @@ func file_proto_puzzles_v1_puzzles_proto_init() {
 	if File_proto_puzzles_v1_puzzles_proto != nil {
 		return
 	}
+	file_proto_puzzles_v1_puzzles_proto_msgTypes[3].OneofWrappers = []any{}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
