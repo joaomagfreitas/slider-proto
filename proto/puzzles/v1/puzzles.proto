@@ -9,12 +9,26 @@ message PuzzleCategory {
   string slug = 2;
 }
 
-message ListPuzzleCategoriesRequest {}
-
-message ListPuzzleCategoriesResponse {
-  repeated PuzzleCategory categories = 1;
+message PuzzlePack {
+  string name = 1;
+  string slug = 2;
+  string description = 3;
+  string cover_url = 4;
+  string difficulty = 5;
+  string category = 6;
 }
 
+message ListPuzzleCategoriesRequest {}
+
+message QueryPuzzlePacksRequest { string category = 1; }
+
+message ListPuzzleCategoriesResponse { repeated PuzzleCategory categories = 1; }
+
+message QueryPuzzlePacksResponse { repeated PuzzlePack packs = 1; }
+
 service PuzzlesService {
-  rpc ListCategories(ListPuzzleCategoriesRequest) returns (ListPuzzleCategoriesResponse);
+  rpc ListCategories(ListPuzzleCategoriesRequest)
+      returns (ListPuzzleCategoriesResponse);
+
+  rpc QueryPacks(QueryPuzzlePacksRequest) returns (QueryPuzzlePacksResponse);
 }
