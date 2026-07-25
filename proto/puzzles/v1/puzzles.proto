@@ -18,17 +18,29 @@ message PuzzlePack {
   string category = 6;
 }
 
+message Puzzle {
+  string name = 1;
+  string slug = 2;
+  string tiles_url = 3;
+}
+
 message ListPuzzleCategoriesRequest {}
 
 message QueryPuzzlePacksRequest { optional string category = 1; }
 
+message GetRandomPuzzleRequest {}
+
 message ListPuzzleCategoriesResponse { repeated PuzzleCategory categories = 1; }
 
 message QueryPuzzlePacksResponse { repeated PuzzlePack packs = 1; }
+
+message GetRandomPuzzleResponse { Puzzle puzzle = 1; }
 
 service PuzzlesService {
   rpc ListCategories(ListPuzzleCategoriesRequest)
       returns (ListPuzzleCategoriesResponse);
 
   rpc QueryPacks(QueryPuzzlePacksRequest) returns (QueryPuzzlePacksResponse);
+
+  rpc GetRandomPuzzle(GetRandomPuzzleRequest) returns (GetRandomPuzzleResponse);
 }
