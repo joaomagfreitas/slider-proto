@@ -3,7 +3,7 @@
 /* eslint-disable */
 // @ts-nocheck
 
-import { GetRandomPuzzleRequest, GetRandomPuzzleResponse, ListPuzzleCategoriesRequest, ListPuzzleCategoriesResponse, QueryPuzzlePacksRequest, QueryPuzzlePacksResponse } from "./puzzles_pb.js";
+import { GetRandomPuzzleRequest, GetRandomPuzzleResponse, ListPackPuzzlesRequest, ListPackPuzzlesResponse, ListPuzzleCategoriesRequest, ListPuzzleCategoriesResponse, QueryPuzzlePacksRequest, QueryPuzzlePacksResponse } from "./puzzles_pb.js";
 import { MethodKind } from "@bufbuild/protobuf";
 
 /**
@@ -37,6 +37,15 @@ export const PuzzlesService = {
       name: "GetRandomPuzzle",
       I: GetRandomPuzzleRequest,
       O: GetRandomPuzzleResponse,
+      kind: MethodKind.Unary,
+    },
+    /**
+     * @generated from rpc puzzles.v1.PuzzlesService.ListPackPuzzles
+     */
+    listPackPuzzles: {
+      name: "ListPackPuzzles",
+      I: ListPackPuzzlesRequest,
+      O: ListPackPuzzlesResponse,
       kind: MethodKind.Unary,
     },
   }

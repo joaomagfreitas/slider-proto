@@ -36,6 +36,10 @@ message QueryPuzzlePacksResponse { repeated PuzzlePack packs = 1; }
 
 message GetRandomPuzzleResponse { Puzzle puzzle = 1; }
 
+message ListPackPuzzlesRequest { string slug = 1; }
+
+message ListPackPuzzlesResponse { repeated Puzzle puzzles = 1; }
+
 service PuzzlesService {
   rpc ListCategories(ListPuzzleCategoriesRequest)
       returns (ListPuzzleCategoriesResponse);
@@ -43,4 +47,6 @@ service PuzzlesService {
   rpc QueryPacks(QueryPuzzlePacksRequest) returns (QueryPuzzlePacksResponse);
 
   rpc GetRandomPuzzle(GetRandomPuzzleRequest) returns (GetRandomPuzzleResponse);
+
+  rpc ListPackPuzzles(ListPackPuzzlesRequest) returns (ListPackPuzzlesResponse);
 }
