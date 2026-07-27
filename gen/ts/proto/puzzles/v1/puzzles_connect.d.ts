@@ -3,7 +3,7 @@
 /* eslint-disable */
 // @ts-nocheck
 
-import { GetRandomPuzzleRequest, GetRandomPuzzleResponse, ListPuzzleCategoriesRequest, ListPuzzleCategoriesResponse, QueryPuzzlePacksRequest, QueryPuzzlePacksResponse } from "./puzzles_pb.js";
+import { GetRandomPuzzleRequest, GetRandomPuzzleResponse, ListPackPuzzlesRequest, ListPackPuzzlesResponse, ListPuzzleCategoriesRequest, ListPuzzleCategoriesResponse, QueryPuzzlePacksRequest, QueryPuzzlePacksResponse } from "./puzzles_pb.js";
 import { MethodKind } from "@bufbuild/protobuf";
 
 /**
@@ -37,6 +37,15 @@ export declare const PuzzlesService: {
       readonly name: "GetRandomPuzzle",
       readonly I: typeof GetRandomPuzzleRequest,
       readonly O: typeof GetRandomPuzzleResponse,
+      readonly kind: MethodKind.Unary,
+    },
+    /**
+     * @generated from rpc puzzles.v1.PuzzlesService.ListPackPuzzles
+     */
+    readonly listPackPuzzles: {
+      readonly name: "ListPackPuzzles",
+      readonly I: typeof ListPackPuzzlesRequest,
+      readonly O: typeof ListPackPuzzlesResponse,
       readonly kind: MethodKind.Unary,
     },
   }

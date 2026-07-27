@@ -10,7 +10,7 @@ import type { Message } from "@bufbuild/protobuf";
  * Describes the file proto/puzzles/v1/puzzles.proto.
  */
 export const file_proto_puzzles_v1_puzzles: GenFile = /*@__PURE__*/
-  fileDesc("Ch5wcm90by9wdXp6bGVzL3YxL3B1enpsZXMucHJvdG8SCnB1enpsZXMudjEiLAoOUHV6emxlQ2F0ZWdvcnkSDAoEbmFtZRgBIAEoCRIMCgRzbHVnGAIgASgJInYKClB1enpsZVBhY2sSDAoEbmFtZRgBIAEoCRIMCgRzbHVnGAIgASgJEhMKC2Rlc2NyaXB0aW9uGAMgASgJEhEKCWNvdmVyX3VybBgEIAEoCRISCgpkaWZmaWN1bHR5GAUgASgJEhAKCGNhdGVnb3J5GAYgASgJIjcKBlB1enpsZRIMCgRuYW1lGAEgASgJEgwKBHNsdWcYAiABKAkSEQoJdGlsZXNfdXJsGAMgASgJIh0KG0xpc3RQdXp6bGVDYXRlZ29yaWVzUmVxdWVzdCI9ChdRdWVyeVB1enpsZVBhY2tzUmVxdWVzdBIVCghjYXRlZ29yeRgBIAEoCUgAiAEBQgsKCV9jYXRlZ29yeSIYChZHZXRSYW5kb21QdXp6bGVSZXF1ZXN0Ik4KHExpc3RQdXp6bGVDYXRlZ29yaWVzUmVzcG9uc2USLgoKY2F0ZWdvcmllcxgBIAMoCzIaLnB1enpsZXMudjEuUHV6emxlQ2F0ZWdvcnkiQQoYUXVlcnlQdXp6bGVQYWNrc1Jlc3BvbnNlEiUKBXBhY2tzGAEgAygLMhYucHV6emxlcy52MS5QdXp6bGVQYWNrIj0KF0dldFJhbmRvbVB1enpsZVJlc3BvbnNlEiIKBnB1enpsZRgBIAEoCzISLnB1enpsZXMudjEuUHV6emxlMqoCCg5QdXp6bGVzU2VydmljZRJjCg5MaXN0Q2F0ZWdvcmllcxInLnB1enpsZXMudjEuTGlzdFB1enpsZUNhdGVnb3JpZXNSZXF1ZXN0GigucHV6emxlcy52MS5MaXN0UHV6emxlQ2F0ZWdvcmllc1Jlc3BvbnNlElcKClF1ZXJ5UGFja3MSIy5wdXp6bGVzLnYxLlF1ZXJ5UHV6emxlUGFja3NSZXF1ZXN0GiQucHV6emxlcy52MS5RdWVyeVB1enpsZVBhY2tzUmVzcG9uc2USWgoPR2V0UmFuZG9tUHV6emxlEiIucHV6emxlcy52MS5HZXRSYW5kb21QdXp6bGVSZXF1ZXN0GiMucHV6emxlcy52MS5HZXRSYW5kb21QdXp6bGVSZXNwb25zZUJEWkJnaXRodWIuY29tL2pvYW9tYWdmcmVpdGFzL3NsaWRlci1wcm90by9wdXp6bGVzL3YxO3B1enpsZXNfcHJvdG9fdjFiBnByb3RvMw");
+  fileDesc("Ch5wcm90by9wdXp6bGVzL3YxL3B1enpsZXMucHJvdG8SCnB1enpsZXMudjEiLAoOUHV6emxlQ2F0ZWdvcnkSDAoEbmFtZRgBIAEoCRIMCgRzbHVnGAIgASgJInYKClB1enpsZVBhY2sSDAoEbmFtZRgBIAEoCRIMCgRzbHVnGAIgASgJEhMKC2Rlc2NyaXB0aW9uGAMgASgJEhEKCWNvdmVyX3VybBgEIAEoCRISCgpkaWZmaWN1bHR5GAUgASgJEhAKCGNhdGVnb3J5GAYgASgJIjcKBlB1enpsZRIMCgRuYW1lGAEgASgJEgwKBHNsdWcYAiABKAkSEQoJdGlsZXNfdXJsGAMgASgJIh0KG0xpc3RQdXp6bGVDYXRlZ29yaWVzUmVxdWVzdCI9ChdRdWVyeVB1enpsZVBhY2tzUmVxdWVzdBIVCghjYXRlZ29yeRgBIAEoCUgAiAEBQgsKCV9jYXRlZ29yeSIYChZHZXRSYW5kb21QdXp6bGVSZXF1ZXN0Ik4KHExpc3RQdXp6bGVDYXRlZ29yaWVzUmVzcG9uc2USLgoKY2F0ZWdvcmllcxgBIAMoCzIaLnB1enpsZXMudjEuUHV6emxlQ2F0ZWdvcnkiQQoYUXVlcnlQdXp6bGVQYWNrc1Jlc3BvbnNlEiUKBXBhY2tzGAEgAygLMhYucHV6emxlcy52MS5QdXp6bGVQYWNrIj0KF0dldFJhbmRvbVB1enpsZVJlc3BvbnNlEiIKBnB1enpsZRgBIAEoCzISLnB1enpsZXMudjEuUHV6emxlIiYKFkxpc3RQYWNrUHV6emxlc1JlcXVlc3QSDAoEc2x1ZxgBIAEoCSI+ChdMaXN0UGFja1B1enpsZXNSZXNwb25zZRIjCgdwdXp6bGVzGAEgAygLMhIucHV6emxlcy52MS5QdXp6bGUyhgMKDlB1enpsZXNTZXJ2aWNlEmMKDkxpc3RDYXRlZ29yaWVzEicucHV6emxlcy52MS5MaXN0UHV6emxlQ2F0ZWdvcmllc1JlcXVlc3QaKC5wdXp6bGVzLnYxLkxpc3RQdXp6bGVDYXRlZ29yaWVzUmVzcG9uc2USVwoKUXVlcnlQYWNrcxIjLnB1enpsZXMudjEuUXVlcnlQdXp6bGVQYWNrc1JlcXVlc3QaJC5wdXp6bGVzLnYxLlF1ZXJ5UHV6emxlUGFja3NSZXNwb25zZRJaCg9HZXRSYW5kb21QdXp6bGUSIi5wdXp6bGVzLnYxLkdldFJhbmRvbVB1enpsZVJlcXVlc3QaIy5wdXp6bGVzLnYxLkdldFJhbmRvbVB1enpsZVJlc3BvbnNlEloKD0xpc3RQYWNrUHV6emxlcxIiLnB1enpsZXMudjEuTGlzdFBhY2tQdXp6bGVzUmVxdWVzdBojLnB1enpsZXMudjEuTGlzdFBhY2tQdXp6bGVzUmVzcG9uc2VCRFpCZ2l0aHViLmNvbS9qb2FvbWFnZnJlaXRhcy9zbGlkZXItcHJvdG8vcHV6emxlcy92MTtwdXp6bGVzX3Byb3RvX3YxYgZwcm90bzM");
 
 /**
  * @generated from message puzzles.v1.PuzzleCategory
@@ -198,6 +198,40 @@ export const GetRandomPuzzleResponseSchema: GenMessage<GetRandomPuzzleResponse> 
   messageDesc(file_proto_puzzles_v1_puzzles, 8);
 
 /**
+ * @generated from message puzzles.v1.ListPackPuzzlesRequest
+ */
+export type ListPackPuzzlesRequest = Message<"puzzles.v1.ListPackPuzzlesRequest"> & {
+  /**
+   * @generated from field: string slug = 1;
+   */
+  slug: string;
+};
+
+/**
+ * Describes the message puzzles.v1.ListPackPuzzlesRequest.
+ * Use `create(ListPackPuzzlesRequestSchema)` to create a new message.
+ */
+export const ListPackPuzzlesRequestSchema: GenMessage<ListPackPuzzlesRequest> = /*@__PURE__*/
+  messageDesc(file_proto_puzzles_v1_puzzles, 9);
+
+/**
+ * @generated from message puzzles.v1.ListPackPuzzlesResponse
+ */
+export type ListPackPuzzlesResponse = Message<"puzzles.v1.ListPackPuzzlesResponse"> & {
+  /**
+   * @generated from field: repeated puzzles.v1.Puzzle puzzles = 1;
+   */
+  puzzles: Puzzle[];
+};
+
+/**
+ * Describes the message puzzles.v1.ListPackPuzzlesResponse.
+ * Use `create(ListPackPuzzlesResponseSchema)` to create a new message.
+ */
+export const ListPackPuzzlesResponseSchema: GenMessage<ListPackPuzzlesResponse> = /*@__PURE__*/
+  messageDesc(file_proto_puzzles_v1_puzzles, 10);
+
+/**
  * @generated from service puzzles.v1.PuzzlesService
  */
 export const PuzzlesService: GenService<{
@@ -224,6 +258,14 @@ export const PuzzlesService: GenService<{
     methodKind: "unary";
     input: typeof GetRandomPuzzleRequestSchema;
     output: typeof GetRandomPuzzleResponseSchema;
+  },
+  /**
+   * @generated from rpc puzzles.v1.PuzzlesService.ListPackPuzzles
+   */
+  listPackPuzzles: {
+    methodKind: "unary";
+    input: typeof ListPackPuzzlesRequestSchema;
+    output: typeof ListPackPuzzlesResponseSchema;
   },
 }> = /*@__PURE__*/
   serviceDesc(file_proto_puzzles_v1_puzzles, 0);

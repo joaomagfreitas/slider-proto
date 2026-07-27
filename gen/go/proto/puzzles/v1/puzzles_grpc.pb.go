@@ -22,6 +22,7 @@ const (
 	PuzzlesService_ListCategories_FullMethodName  = "/puzzles.v1.PuzzlesService/ListCategories"
 	PuzzlesService_QueryPacks_FullMethodName      = "/puzzles.v1.PuzzlesService/QueryPacks"
 	PuzzlesService_GetRandomPuzzle_FullMethodName = "/puzzles.v1.PuzzlesService/GetRandomPuzzle"
+	PuzzlesService_ListPackPuzzles_FullMethodName = "/puzzles.v1.PuzzlesService/ListPackPuzzles"
 )
 
 // PuzzlesServiceClient is the client API for PuzzlesService service.
@@ -31,6 +32,7 @@ type PuzzlesServiceClient interface {
 	ListCategories(ctx context.Context, in *ListPuzzleCategoriesRequest, opts ...grpc.CallOption) (*ListPuzzleCategoriesResponse, error)
 	QueryPacks(ctx context.Context, in *QueryPuzzlePacksRequest, opts ...grpc.CallOption) (*QueryPuzzlePacksResponse, error)
 	GetRandomPuzzle(ctx context.Context, in *GetRandomPuzzleRequest, opts ...grpc.CallOption) (*GetRandomPuzzleResponse, error)
+	ListPackPuzzles(ctx context.Context, in *ListPackPuzzlesRequest, opts ...grpc.CallOption) (*ListPackPuzzlesResponse, error)
 }
 
 type puzzlesServiceClient struct {
@@ -71,6 +73,16 @@ func (c *puzzlesServiceClient) GetRandomPuzzle(ctx context.Context, in *GetRando
 	return out, nil
 }
 
+func (c *puzzlesServiceClient) ListPackPuzzles(ctx context.Context, in *ListPackPuzzlesRequest, opts ...grpc.CallOption) (*ListPackPuzzlesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ListPackPuzzlesResponse)
+	err := c.cc.Invoke(ctx, PuzzlesService_ListPackPuzzles_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // PuzzlesServiceServer is the server API for PuzzlesService service.
 // All implementations must embed UnimplementedPuzzlesServiceServer
 // for forward compatibility.
@@ -78,6 +90,7 @@ type PuzzlesServiceServer interface {
 	ListCategories(context.Context, *ListPuzzleCategoriesRequest) (*ListPuzzleCategoriesResponse, error)
 	QueryPacks(context.Context, *QueryPuzzlePacksRequest) (*QueryPuzzlePacksResponse, error)
 	GetRandomPuzzle(context.Context, *GetRandomPuzzleRequest) (*GetRandomPuzzleResponse, error)
+	ListPackPuzzles(context.Context, *ListPackPuzzlesRequest) (*ListPackPuzzlesResponse, error)
 	mustEmbedUnimplementedPuzzlesServiceServer()
 }
 
@@ -96,6 +109,9 @@ func (UnimplementedPuzzlesServiceServer) QueryPacks(context.Context, *QueryPuzzl
 }
 func (UnimplementedPuzzlesServiceServer) GetRandomPuzzle(context.Context, *GetRandomPuzzleRequest) (*GetRandomPuzzleResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetRandomPuzzle not implemented")
+}
+func (UnimplementedPuzzlesServiceServer) ListPackPuzzles(context.Context, *ListPackPuzzlesRequest) (*ListPackPuzzlesResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ListPackPuzzles not implemented")
 }
 func (UnimplementedPuzzlesServiceServer) mustEmbedUnimplementedPuzzlesServiceServer() {}
 func (UnimplementedPuzzlesServiceServer) testEmbeddedByValue()                        {}
@@ -172,6 +188,24 @@ func _PuzzlesService_GetRandomPuzzle_Handler(srv interface{}, ctx context.Contex
 	return interceptor(ctx, in, info, handler)
 }
 
+func _PuzzlesService_ListPackPuzzles_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ListPackPuzzlesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PuzzlesServiceServer).ListPackPuzzles(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PuzzlesService_ListPackPuzzles_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PuzzlesServiceServer).ListPackPuzzles(ctx, req.(*ListPackPuzzlesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // PuzzlesService_ServiceDesc is the grpc.ServiceDesc for PuzzlesService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -190,6 +224,10 @@ var PuzzlesService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetRandomPuzzle",
 			Handler:    _PuzzlesService_GetRandomPuzzle_Handler,
+		},
+		{
+			MethodName: "ListPackPuzzles",
+			Handler:    _PuzzlesService_ListPackPuzzles_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

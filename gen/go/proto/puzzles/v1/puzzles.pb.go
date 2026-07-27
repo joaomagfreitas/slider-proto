@@ -465,6 +465,94 @@ func (x *GetRandomPuzzleResponse) GetPuzzle() *Puzzle {
 	return nil
 }
 
+type ListPackPuzzlesRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Slug          string                 `protobuf:"bytes,1,opt,name=slug,proto3" json:"slug,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ListPackPuzzlesRequest) Reset() {
+	*x = ListPackPuzzlesRequest{}
+	mi := &file_proto_puzzles_v1_puzzles_proto_msgTypes[9]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ListPackPuzzlesRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ListPackPuzzlesRequest) ProtoMessage() {}
+
+func (x *ListPackPuzzlesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_puzzles_v1_puzzles_proto_msgTypes[9]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ListPackPuzzlesRequest.ProtoReflect.Descriptor instead.
+func (*ListPackPuzzlesRequest) Descriptor() ([]byte, []int) {
+	return file_proto_puzzles_v1_puzzles_proto_rawDescGZIP(), []int{9}
+}
+
+func (x *ListPackPuzzlesRequest) GetSlug() string {
+	if x != nil {
+		return x.Slug
+	}
+	return ""
+}
+
+type ListPackPuzzlesResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Puzzles       []*Puzzle              `protobuf:"bytes,1,rep,name=puzzles,proto3" json:"puzzles,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ListPackPuzzlesResponse) Reset() {
+	*x = ListPackPuzzlesResponse{}
+	mi := &file_proto_puzzles_v1_puzzles_proto_msgTypes[10]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ListPackPuzzlesResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ListPackPuzzlesResponse) ProtoMessage() {}
+
+func (x *ListPackPuzzlesResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_puzzles_v1_puzzles_proto_msgTypes[10]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ListPackPuzzlesResponse.ProtoReflect.Descriptor instead.
+func (*ListPackPuzzlesResponse) Descriptor() ([]byte, []int) {
+	return file_proto_puzzles_v1_puzzles_proto_rawDescGZIP(), []int{10}
+}
+
+func (x *ListPackPuzzlesResponse) GetPuzzles() []*Puzzle {
+	if x != nil {
+		return x.Puzzles
+	}
+	return nil
+}
+
 var File_proto_puzzles_v1_puzzles_proto protoreflect.FileDescriptor
 
 const file_proto_puzzles_v1_puzzles_proto_rawDesc = "" +
@@ -500,12 +588,17 @@ const file_proto_puzzles_v1_puzzles_proto_rawDesc = "" +
 	"\x18QueryPuzzlePacksResponse\x12,\n" +
 	"\x05packs\x18\x01 \x03(\v2\x16.puzzles.v1.PuzzlePackR\x05packs\"E\n" +
 	"\x17GetRandomPuzzleResponse\x12*\n" +
-	"\x06puzzle\x18\x01 \x01(\v2\x12.puzzles.v1.PuzzleR\x06puzzle2\xaa\x02\n" +
+	"\x06puzzle\x18\x01 \x01(\v2\x12.puzzles.v1.PuzzleR\x06puzzle\",\n" +
+	"\x16ListPackPuzzlesRequest\x12\x12\n" +
+	"\x04slug\x18\x01 \x01(\tR\x04slug\"G\n" +
+	"\x17ListPackPuzzlesResponse\x12,\n" +
+	"\apuzzles\x18\x01 \x03(\v2\x12.puzzles.v1.PuzzleR\apuzzles2\x86\x03\n" +
 	"\x0ePuzzlesService\x12c\n" +
 	"\x0eListCategories\x12'.puzzles.v1.ListPuzzleCategoriesRequest\x1a(.puzzles.v1.ListPuzzleCategoriesResponse\x12W\n" +
 	"\n" +
 	"QueryPacks\x12#.puzzles.v1.QueryPuzzlePacksRequest\x1a$.puzzles.v1.QueryPuzzlePacksResponse\x12Z\n" +
-	"\x0fGetRandomPuzzle\x12\".puzzles.v1.GetRandomPuzzleRequest\x1a#.puzzles.v1.GetRandomPuzzleResponseBDZBgithub.com/joaomagfreitas/slider-proto/puzzles/v1;puzzles_proto_v1b\x06proto3"
+	"\x0fGetRandomPuzzle\x12\".puzzles.v1.GetRandomPuzzleRequest\x1a#.puzzles.v1.GetRandomPuzzleResponse\x12Z\n" +
+	"\x0fListPackPuzzles\x12\".puzzles.v1.ListPackPuzzlesRequest\x1a#.puzzles.v1.ListPackPuzzlesResponseBDZBgithub.com/joaomagfreitas/slider-proto/puzzles/v1;puzzles_proto_v1b\x06proto3"
 
 var (
 	file_proto_puzzles_v1_puzzles_proto_rawDescOnce sync.Once
@@ -519,7 +612,7 @@ func file_proto_puzzles_v1_puzzles_proto_rawDescGZIP() []byte {
 	return file_proto_puzzles_v1_puzzles_proto_rawDescData
 }
 
-var file_proto_puzzles_v1_puzzles_proto_msgTypes = make([]protoimpl.MessageInfo, 9)
+var file_proto_puzzles_v1_puzzles_proto_msgTypes = make([]protoimpl.MessageInfo, 11)
 var file_proto_puzzles_v1_puzzles_proto_goTypes = []any{
 	(*PuzzleCategory)(nil),               // 0: puzzles.v1.PuzzleCategory
 	(*PuzzlePack)(nil),                   // 1: puzzles.v1.PuzzlePack
@@ -530,22 +623,27 @@ var file_proto_puzzles_v1_puzzles_proto_goTypes = []any{
 	(*ListPuzzleCategoriesResponse)(nil), // 6: puzzles.v1.ListPuzzleCategoriesResponse
 	(*QueryPuzzlePacksResponse)(nil),     // 7: puzzles.v1.QueryPuzzlePacksResponse
 	(*GetRandomPuzzleResponse)(nil),      // 8: puzzles.v1.GetRandomPuzzleResponse
+	(*ListPackPuzzlesRequest)(nil),       // 9: puzzles.v1.ListPackPuzzlesRequest
+	(*ListPackPuzzlesResponse)(nil),      // 10: puzzles.v1.ListPackPuzzlesResponse
 }
 var file_proto_puzzles_v1_puzzles_proto_depIdxs = []int32{
-	0, // 0: puzzles.v1.ListPuzzleCategoriesResponse.categories:type_name -> puzzles.v1.PuzzleCategory
-	1, // 1: puzzles.v1.QueryPuzzlePacksResponse.packs:type_name -> puzzles.v1.PuzzlePack
-	2, // 2: puzzles.v1.GetRandomPuzzleResponse.puzzle:type_name -> puzzles.v1.Puzzle
-	3, // 3: puzzles.v1.PuzzlesService.ListCategories:input_type -> puzzles.v1.ListPuzzleCategoriesRequest
-	4, // 4: puzzles.v1.PuzzlesService.QueryPacks:input_type -> puzzles.v1.QueryPuzzlePacksRequest
-	5, // 5: puzzles.v1.PuzzlesService.GetRandomPuzzle:input_type -> puzzles.v1.GetRandomPuzzleRequest
-	6, // 6: puzzles.v1.PuzzlesService.ListCategories:output_type -> puzzles.v1.ListPuzzleCategoriesResponse
-	7, // 7: puzzles.v1.PuzzlesService.QueryPacks:output_type -> puzzles.v1.QueryPuzzlePacksResponse
-	8, // 8: puzzles.v1.PuzzlesService.GetRandomPuzzle:output_type -> puzzles.v1.GetRandomPuzzleResponse
-	6, // [6:9] is the sub-list for method output_type
-	3, // [3:6] is the sub-list for method input_type
-	3, // [3:3] is the sub-list for extension type_name
-	3, // [3:3] is the sub-list for extension extendee
-	0, // [0:3] is the sub-list for field type_name
+	0,  // 0: puzzles.v1.ListPuzzleCategoriesResponse.categories:type_name -> puzzles.v1.PuzzleCategory
+	1,  // 1: puzzles.v1.QueryPuzzlePacksResponse.packs:type_name -> puzzles.v1.PuzzlePack
+	2,  // 2: puzzles.v1.GetRandomPuzzleResponse.puzzle:type_name -> puzzles.v1.Puzzle
+	2,  // 3: puzzles.v1.ListPackPuzzlesResponse.puzzles:type_name -> puzzles.v1.Puzzle
+	3,  // 4: puzzles.v1.PuzzlesService.ListCategories:input_type -> puzzles.v1.ListPuzzleCategoriesRequest
+	4,  // 5: puzzles.v1.PuzzlesService.QueryPacks:input_type -> puzzles.v1.QueryPuzzlePacksRequest
+	5,  // 6: puzzles.v1.PuzzlesService.GetRandomPuzzle:input_type -> puzzles.v1.GetRandomPuzzleRequest
+	9,  // 7: puzzles.v1.PuzzlesService.ListPackPuzzles:input_type -> puzzles.v1.ListPackPuzzlesRequest
+	6,  // 8: puzzles.v1.PuzzlesService.ListCategories:output_type -> puzzles.v1.ListPuzzleCategoriesResponse
+	7,  // 9: puzzles.v1.PuzzlesService.QueryPacks:output_type -> puzzles.v1.QueryPuzzlePacksResponse
+	8,  // 10: puzzles.v1.PuzzlesService.GetRandomPuzzle:output_type -> puzzles.v1.GetRandomPuzzleResponse
+	10, // 11: puzzles.v1.PuzzlesService.ListPackPuzzles:output_type -> puzzles.v1.ListPackPuzzlesResponse
+	8,  // [8:12] is the sub-list for method output_type
+	4,  // [4:8] is the sub-list for method input_type
+	4,  // [4:4] is the sub-list for extension type_name
+	4,  // [4:4] is the sub-list for extension extendee
+	0,  // [0:4] is the sub-list for field type_name
 }
 
 func init() { file_proto_puzzles_v1_puzzles_proto_init() }
@@ -560,7 +658,7 @@ func file_proto_puzzles_v1_puzzles_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_proto_puzzles_v1_puzzles_proto_rawDesc), len(file_proto_puzzles_v1_puzzles_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   9,
+			NumMessages:   11,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
