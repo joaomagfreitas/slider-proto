@@ -225,19 +225,19 @@ func (x *GameTile) GetGhost() bool {
 }
 
 type GameData struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Id            string                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
-	Powerups      []GamePowerup          `protobuf:"varint,2,rep,packed,name=powerups,proto3,enum=games.v1.GamePowerup" json:"powerups,omitempty"`
-	StartedAt     *timestamppb.Timestamp `protobuf:"bytes,3,opt,name=started_at,json=startedAt,proto3" json:"started_at,omitempty"`
-	EndedAt       *timestamppb.Timestamp `protobuf:"bytes,4,opt,name=ended_at,json=endedAt,proto3" json:"ended_at,omitempty"`
-	TimerSec      uint32                 `protobuf:"varint,5,opt,name=timer_sec,json=timerSec,proto3" json:"timer_sec,omitempty"`
-	Moves         []GameMove             `protobuf:"varint,6,rep,packed,name=moves,proto3,enum=games.v1.GameMove" json:"moves,omitempty"`
-	Tiles         []*GameTile            `protobuf:"bytes,7,rep,name=tiles,proto3" json:"tiles,omitempty"`
-	Status        GameStatus             `protobuf:"varint,8,opt,name=status,proto3,enum=games.v1.GameStatus" json:"status,omitempty"`
-	PuzzleName    string                 `protobuf:"bytes,9,opt,name=puzzle_name,json=puzzleName,proto3" json:"puzzle_name,omitempty"`
-	PuzzleTiles   string                 `protobuf:"bytes,10,opt,name=puzzle_tiles,json=puzzleTiles,proto3" json:"puzzle_tiles,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
+	state          protoimpl.MessageState `protogen:"open.v1"`
+	Id             string                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+	Powerups       []GamePowerup          `protobuf:"varint,2,rep,packed,name=powerups,proto3,enum=games.v1.GamePowerup" json:"powerups,omitempty"`
+	StartedAt      *timestamppb.Timestamp `protobuf:"bytes,3,opt,name=started_at,json=startedAt,proto3" json:"started_at,omitempty"`
+	EndedAt        *timestamppb.Timestamp `protobuf:"bytes,4,opt,name=ended_at,json=endedAt,proto3" json:"ended_at,omitempty"`
+	TimerSec       uint32                 `protobuf:"varint,5,opt,name=timer_sec,json=timerSec,proto3" json:"timer_sec,omitempty"`
+	Moves          []GameMove             `protobuf:"varint,6,rep,packed,name=moves,proto3,enum=games.v1.GameMove" json:"moves,omitempty"`
+	Tiles          []*GameTile            `protobuf:"bytes,7,rep,name=tiles,proto3" json:"tiles,omitempty"`
+	Status         GameStatus             `protobuf:"varint,8,opt,name=status,proto3,enum=games.v1.GameStatus" json:"status,omitempty"`
+	PuzzleName     string                 `protobuf:"bytes,9,opt,name=puzzle_name,json=puzzleName,proto3" json:"puzzle_name,omitempty"`
+	PuzzleTilesUrl string                 `protobuf:"bytes,10,opt,name=puzzle_tiles_url,json=puzzleTilesUrl,proto3" json:"puzzle_tiles_url,omitempty"`
+	unknownFields  protoimpl.UnknownFields
+	sizeCache      protoimpl.SizeCache
 }
 
 func (x *GameData) Reset() {
@@ -333,9 +333,9 @@ func (x *GameData) GetPuzzleName() string {
 	return ""
 }
 
-func (x *GameData) GetPuzzleTiles() string {
+func (x *GameData) GetPuzzleTilesUrl() string {
 	if x != nil {
-		return x.PuzzleTiles
+		return x.PuzzleTilesUrl
 	}
 	return ""
 }
@@ -443,7 +443,7 @@ const file_proto_games_v1_games_proto_rawDesc = "" +
 	"\x1aproto/games/v1/games.proto\x12\bgames.v1\x1a\x1fgoogle/protobuf/timestamp.proto\"<\n" +
 	"\bGameTile\x12\x1a\n" +
 	"\bposition\x18\x01 \x01(\rR\bposition\x12\x14\n" +
-	"\x05ghost\x18\x02 \x01(\bR\x05ghost\"\xa2\x03\n" +
+	"\x05ghost\x18\x02 \x01(\bR\x05ghost\"\xa9\x03\n" +
 	"\bGameData\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x121\n" +
 	"\bpowerups\x18\x02 \x03(\x0e2\x15.games.v1.GamePowerupR\bpowerups\x129\n" +
@@ -455,9 +455,9 @@ const file_proto_games_v1_games_proto_rawDesc = "" +
 	"\x05tiles\x18\a \x03(\v2\x12.games.v1.GameTileR\x05tiles\x12,\n" +
 	"\x06status\x18\b \x01(\x0e2\x14.games.v1.GameStatusR\x06status\x12\x1f\n" +
 	"\vpuzzle_name\x18\t \x01(\tR\n" +
-	"puzzleName\x12!\n" +
-	"\fpuzzle_tiles\x18\n" +
-	" \x01(\tR\vpuzzleTiles\"y\n" +
+	"puzzleName\x12(\n" +
+	"\x10puzzle_tiles_url\x18\n" +
+	" \x01(\tR\x0epuzzleTilesUrl\"y\n" +
 	"\x11CreateGameRequest\x12 \n" +
 	"\tpack_slug\x18\x01 \x01(\tH\x00R\bpackSlug\x88\x01\x01\x12$\n" +
 	"\vpuzzle_slug\x18\x02 \x01(\tH\x01R\n" +
