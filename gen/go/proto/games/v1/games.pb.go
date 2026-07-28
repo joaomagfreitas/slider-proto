@@ -7,7 +7,6 @@
 package games_proto_v1
 
 import (
-	v1 "github.com/joaomagfreitas/slider-proto/puzzles/v1"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
@@ -72,10 +71,10 @@ func (GamePowerup) EnumDescriptor() ([]byte, []int) {
 type GameStatus int32
 
 const (
-	GameStatus_GS_CREATED   GameStatus = 0
-	GameStatus_GS_STARTED   GameStatus = 1
-	GameStatus_GS_CONCLUDED GameStatus = 2
-	GameStatus_GS_FAILED    GameStatus = 3
+	GameStatus_GS_CREATED       GameStatus = 0
+	GameStatus_GS_STARTED       GameStatus = 1
+	GameStatus_GS_FINISHED_WIN  GameStatus = 2
+	GameStatus_GS_FINISHED_LOSE GameStatus = 3
 )
 
 // Enum value maps for GameStatus.
@@ -83,14 +82,14 @@ var (
 	GameStatus_name = map[int32]string{
 		0: "GS_CREATED",
 		1: "GS_STARTED",
-		2: "GS_CONCLUDED",
-		3: "GS_FAILED",
+		2: "GS_FINISHED_WIN",
+		3: "GS_FINISHED_LOSE",
 	}
 	GameStatus_value = map[string]int32{
-		"GS_CREATED":   0,
-		"GS_STARTED":   1,
-		"GS_CONCLUDED": 2,
-		"GS_FAILED":    3,
+		"GS_CREATED":       0,
+		"GS_STARTED":       1,
+		"GS_FINISHED_WIN":  2,
+		"GS_FINISHED_LOSE": 3,
 	}
 )
 
@@ -234,8 +233,9 @@ type GameData struct {
 	TimerSec      uint32                 `protobuf:"varint,5,opt,name=timer_sec,json=timerSec,proto3" json:"timer_sec,omitempty"`
 	Moves         []GameMove             `protobuf:"varint,6,rep,packed,name=moves,proto3,enum=games.v1.GameMove" json:"moves,omitempty"`
 	Tiles         []*GameTile            `protobuf:"bytes,7,rep,name=tiles,proto3" json:"tiles,omitempty"`
-	Puzzle        *v1.Puzzle             `protobuf:"bytes,8,opt,name=puzzle,proto3" json:"puzzle,omitempty"`
-	Status        GameStatus             `protobuf:"varint,9,opt,name=status,proto3,enum=games.v1.GameStatus" json:"status,omitempty"`
+	Status        GameStatus             `protobuf:"varint,8,opt,name=status,proto3,enum=games.v1.GameStatus" json:"status,omitempty"`
+	PuzzleName    string                 `protobuf:"bytes,9,opt,name=puzzle_name,json=puzzleName,proto3" json:"puzzle_name,omitempty"`
+	PuzzleTiles   string                 `protobuf:"bytes,10,opt,name=puzzle_tiles,json=puzzleTiles,proto3" json:"puzzle_tiles,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -319,18 +319,25 @@ func (x *GameData) GetTiles() []*GameTile {
 	return nil
 }
 
-func (x *GameData) GetPuzzle() *v1.Puzzle {
-	if x != nil {
-		return x.Puzzle
-	}
-	return nil
-}
-
 func (x *GameData) GetStatus() GameStatus {
 	if x != nil {
 		return x.Status
 	}
 	return GameStatus_GS_CREATED
+}
+
+func (x *GameData) GetPuzzleName() string {
+	if x != nil {
+		return x.PuzzleName
+	}
+	return ""
+}
+
+func (x *GameData) GetPuzzleTiles() string {
+	if x != nil {
+		return x.PuzzleTiles
+	}
+	return ""
 }
 
 type CreateGameRequest struct {
@@ -433,10 +440,10 @@ var File_proto_games_v1_games_proto protoreflect.FileDescriptor
 
 const file_proto_games_v1_games_proto_rawDesc = "" +
 	"\n" +
-	"\x1aproto/games/v1/games.proto\x12\bgames.v1\x1a\x1eproto/puzzles/v1/puzzles.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"<\n" +
+	"\x1aproto/games/v1/games.proto\x12\bgames.v1\x1a\x1fgoogle/protobuf/timestamp.proto\"<\n" +
 	"\bGameTile\x12\x1a\n" +
 	"\bposition\x18\x01 \x01(\rR\bposition\x12\x14\n" +
-	"\x05ghost\x18\x02 \x01(\bR\x05ghost\"\x8a\x03\n" +
+	"\x05ghost\x18\x02 \x01(\bR\x05ghost\"\xa2\x03\n" +
 	"\bGameData\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x121\n" +
 	"\bpowerups\x18\x02 \x03(\x0e2\x15.games.v1.GamePowerupR\bpowerups\x129\n" +
@@ -445,9 +452,12 @@ const file_proto_games_v1_games_proto_rawDesc = "" +
 	"\bended_at\x18\x04 \x01(\v2\x1a.google.protobuf.TimestampR\aendedAt\x12\x1b\n" +
 	"\ttimer_sec\x18\x05 \x01(\rR\btimerSec\x12(\n" +
 	"\x05moves\x18\x06 \x03(\x0e2\x12.games.v1.GameMoveR\x05moves\x12(\n" +
-	"\x05tiles\x18\a \x03(\v2\x12.games.v1.GameTileR\x05tiles\x12*\n" +
-	"\x06puzzle\x18\b \x01(\v2\x12.puzzles.v1.PuzzleR\x06puzzle\x12,\n" +
-	"\x06status\x18\t \x01(\x0e2\x14.games.v1.GameStatusR\x06status\"y\n" +
+	"\x05tiles\x18\a \x03(\v2\x12.games.v1.GameTileR\x05tiles\x12,\n" +
+	"\x06status\x18\b \x01(\x0e2\x14.games.v1.GameStatusR\x06status\x12\x1f\n" +
+	"\vpuzzle_name\x18\t \x01(\tR\n" +
+	"puzzleName\x12!\n" +
+	"\fpuzzle_tiles\x18\n" +
+	" \x01(\tR\vpuzzleTiles\"y\n" +
 	"\x11CreateGameRequest\x12 \n" +
 	"\tpack_slug\x18\x01 \x01(\tH\x00R\bpackSlug\x88\x01\x01\x12$\n" +
 	"\vpuzzle_slug\x18\x02 \x01(\tH\x01R\n" +
@@ -459,15 +469,15 @@ const file_proto_games_v1_games_proto_rawDesc = "" +
 	"\x04data\x18\x01 \x01(\v2\x12.games.v1.GameDataR\x04data*8\n" +
 	"\vGamePowerup\x12\x13\n" +
 	"\x0fGP_REVEAL_TILES\x10\x00\x12\x14\n" +
-	"\x10GP_SHUFFLE_TILES\x10\x01*M\n" +
+	"\x10GP_SHUFFLE_TILES\x10\x01*W\n" +
 	"\n" +
 	"GameStatus\x12\x0e\n" +
 	"\n" +
 	"GS_CREATED\x10\x00\x12\x0e\n" +
 	"\n" +
-	"GS_STARTED\x10\x01\x12\x10\n" +
-	"\fGS_CONCLUDED\x10\x02\x12\r\n" +
-	"\tGS_FAILED\x10\x03*=\n" +
+	"GS_STARTED\x10\x01\x12\x13\n" +
+	"\x0fGS_FINISHED_WIN\x10\x02\x12\x14\n" +
+	"\x10GS_FINISHED_LOSE\x10\x03*=\n" +
 	"\bGameMove\x12\t\n" +
 	"\x05GM_UP\x10\x00\x12\v\n" +
 	"\aGM_DOWN\x10\x01\x12\v\n" +
@@ -499,7 +509,6 @@ var file_proto_games_v1_games_proto_goTypes = []any{
 	(*CreateGameRequest)(nil),     // 5: games.v1.CreateGameRequest
 	(*CreateGameResponse)(nil),    // 6: games.v1.CreateGameResponse
 	(*timestamppb.Timestamp)(nil), // 7: google.protobuf.Timestamp
-	(*v1.Puzzle)(nil),             // 8: puzzles.v1.Puzzle
 }
 var file_proto_games_v1_games_proto_depIdxs = []int32{
 	0, // 0: games.v1.GameData.powerups:type_name -> games.v1.GamePowerup
@@ -507,16 +516,15 @@ var file_proto_games_v1_games_proto_depIdxs = []int32{
 	7, // 2: games.v1.GameData.ended_at:type_name -> google.protobuf.Timestamp
 	2, // 3: games.v1.GameData.moves:type_name -> games.v1.GameMove
 	3, // 4: games.v1.GameData.tiles:type_name -> games.v1.GameTile
-	8, // 5: games.v1.GameData.puzzle:type_name -> puzzles.v1.Puzzle
-	1, // 6: games.v1.GameData.status:type_name -> games.v1.GameStatus
-	4, // 7: games.v1.CreateGameResponse.data:type_name -> games.v1.GameData
-	5, // 8: games.v1.gamesService.Create:input_type -> games.v1.CreateGameRequest
-	6, // 9: games.v1.gamesService.Create:output_type -> games.v1.CreateGameResponse
-	9, // [9:10] is the sub-list for method output_type
-	8, // [8:9] is the sub-list for method input_type
-	8, // [8:8] is the sub-list for extension type_name
-	8, // [8:8] is the sub-list for extension extendee
-	0, // [0:8] is the sub-list for field type_name
+	1, // 5: games.v1.GameData.status:type_name -> games.v1.GameStatus
+	4, // 6: games.v1.CreateGameResponse.data:type_name -> games.v1.GameData
+	5, // 7: games.v1.gamesService.Create:input_type -> games.v1.CreateGameRequest
+	6, // 8: games.v1.gamesService.Create:output_type -> games.v1.CreateGameResponse
+	8, // [8:9] is the sub-list for method output_type
+	7, // [7:8] is the sub-list for method input_type
+	7, // [7:7] is the sub-list for extension type_name
+	7, // [7:7] is the sub-list for extension extendee
+	0, // [0:7] is the sub-list for field type_name
 }
 
 func init() { file_proto_games_v1_games_proto_init() }

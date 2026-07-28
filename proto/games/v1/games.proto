@@ -1,6 +1,5 @@
 syntax = "proto3";
 
-import "proto/puzzles/v1/puzzles.proto";
 import "google/protobuf/timestamp.proto";
 
 package games.v1;
@@ -15,8 +14,8 @@ enum GamePowerup {
 enum GameStatus {
   GS_CREATED = 0;
   GS_STARTED = 1;
-  GS_CONCLUDED = 2;
-  GS_FAILED = 3;
+  GS_FINISHED_WIN = 2;
+  GS_FINISHED_LOSE = 3;
 }
 
 enum GameMove {
@@ -39,8 +38,9 @@ message GameData {
   uint32 timer_sec = 5;
   repeated GameMove moves = 6;
   repeated GameTile tiles = 7;
-  puzzles.v1.Puzzle puzzle = 8;
-  GameStatus status = 9;
+  GameStatus status = 8;
+  string puzzle_name = 9;
+  string puzzle_tiles = 10;
 }
 
 message CreateGameRequest {

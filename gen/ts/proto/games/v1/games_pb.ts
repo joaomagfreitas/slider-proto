@@ -4,8 +4,6 @@
 
 import type { GenEnum, GenFile, GenMessage, GenService } from "@bufbuild/protobuf/codegenv2";
 import { enumDesc, fileDesc, messageDesc, serviceDesc } from "@bufbuild/protobuf/codegenv2";
-import type { Puzzle } from "../../puzzles/v1/puzzles_pb";
-import { file_proto_puzzles_v1_puzzles } from "../../puzzles/v1/puzzles_pb";
 import type { Timestamp } from "@bufbuild/protobuf/wkt";
 import { file_google_protobuf_timestamp } from "@bufbuild/protobuf/wkt";
 import type { Message } from "@bufbuild/protobuf";
@@ -14,7 +12,7 @@ import type { Message } from "@bufbuild/protobuf";
  * Describes the file proto/games/v1/games.proto.
  */
 export const file_proto_games_v1_games: GenFile = /*@__PURE__*/
-  fileDesc("Chpwcm90by9nYW1lcy92MS9nYW1lcy5wcm90bxIIZ2FtZXMudjEiKwoIR2FtZVRpbGUSEAoIcG9zaXRpb24YASABKA0SDQoFZ2hvc3QYAiABKAgiwAIKCEdhbWVEYXRhEgoKAmlkGAEgASgJEicKCHBvd2VydXBzGAIgAygOMhUuZ2FtZXMudjEuR2FtZVBvd2VydXASLgoKc3RhcnRlZF9hdBgDIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXASLAoIZW5kZWRfYXQYBCABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wEhEKCXRpbWVyX3NlYxgFIAEoDRIhCgVtb3ZlcxgGIAMoDjISLmdhbWVzLnYxLkdhbWVNb3ZlEiEKBXRpbGVzGAcgAygLMhIuZ2FtZXMudjEuR2FtZVRpbGUSIgoGcHV6emxlGAggASgLMhIucHV6emxlcy52MS5QdXp6bGUSJAoGc3RhdHVzGAkgASgOMhQuZ2FtZXMudjEuR2FtZVN0YXR1cyJjChFDcmVhdGVHYW1lUmVxdWVzdBIWCglwYWNrX3NsdWcYASABKAlIAIgBARIYCgtwdXp6bGVfc2x1ZxgCIAEoCUgBiAEBQgwKCl9wYWNrX3NsdWdCDgoMX3B1enpsZV9zbHVnIjYKEkNyZWF0ZUdhbWVSZXNwb25zZRIgCgRkYXRhGAEgASgLMhIuZ2FtZXMudjEuR2FtZURhdGEqOAoLR2FtZVBvd2VydXASEwoPR1BfUkVWRUFMX1RJTEVTEAASFAoQR1BfU0hVRkZMRV9USUxFUxABKk0KCkdhbWVTdGF0dXMSDgoKR1NfQ1JFQVRFRBAAEg4KCkdTX1NUQVJURUQQARIQCgxHU19DT05DTFVERUQQAhINCglHU19GQUlMRUQQAyo9CghHYW1lTW92ZRIJCgVHTV9VUBAAEgsKB0dNX0RPV04QARILCgdHTV9MRUZUEAISDAoIR01fUklHSFQQAzJTCgxnYW1lc1NlcnZpY2USQwoGQ3JlYXRlEhsuZ2FtZXMudjEuQ3JlYXRlR2FtZVJlcXVlc3QaHC5nYW1lcy52MS5DcmVhdGVHYW1lUmVzcG9uc2VCQFo+Z2l0aHViLmNvbS9qb2FvbWFnZnJlaXRhcy9zbGlkZXItcHJvdG8vZ2FtZXMvdjE7Z2FtZXNfcHJvdG9fdjFiBnByb3RvMw", [file_proto_puzzles_v1_puzzles, file_google_protobuf_timestamp]);
+  fileDesc("Chpwcm90by9nYW1lcy92MS9nYW1lcy5wcm90bxIIZ2FtZXMudjEiKwoIR2FtZVRpbGUSEAoIcG9zaXRpb24YASABKA0SDQoFZ2hvc3QYAiABKAgixwIKCEdhbWVEYXRhEgoKAmlkGAEgASgJEicKCHBvd2VydXBzGAIgAygOMhUuZ2FtZXMudjEuR2FtZVBvd2VydXASLgoKc3RhcnRlZF9hdBgDIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXASLAoIZW5kZWRfYXQYBCABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wEhEKCXRpbWVyX3NlYxgFIAEoDRIhCgVtb3ZlcxgGIAMoDjISLmdhbWVzLnYxLkdhbWVNb3ZlEiEKBXRpbGVzGAcgAygLMhIuZ2FtZXMudjEuR2FtZVRpbGUSJAoGc3RhdHVzGAggASgOMhQuZ2FtZXMudjEuR2FtZVN0YXR1cxITCgtwdXp6bGVfbmFtZRgJIAEoCRIUCgxwdXp6bGVfdGlsZXMYCiABKAkiYwoRQ3JlYXRlR2FtZVJlcXVlc3QSFgoJcGFja19zbHVnGAEgASgJSACIAQESGAoLcHV6emxlX3NsdWcYAiABKAlIAYgBAUIMCgpfcGFja19zbHVnQg4KDF9wdXp6bGVfc2x1ZyI2ChJDcmVhdGVHYW1lUmVzcG9uc2USIAoEZGF0YRgBIAEoCzISLmdhbWVzLnYxLkdhbWVEYXRhKjgKC0dhbWVQb3dlcnVwEhMKD0dQX1JFVkVBTF9USUxFUxAAEhQKEEdQX1NIVUZGTEVfVElMRVMQASpXCgpHYW1lU3RhdHVzEg4KCkdTX0NSRUFURUQQABIOCgpHU19TVEFSVEVEEAESEwoPR1NfRklOSVNIRURfV0lOEAISFAoQR1NfRklOSVNIRURfTE9TRRADKj0KCEdhbWVNb3ZlEgkKBUdNX1VQEAASCwoHR01fRE9XThABEgsKB0dNX0xFRlQQAhIMCghHTV9SSUdIVBADMlMKDGdhbWVzU2VydmljZRJDCgZDcmVhdGUSGy5nYW1lcy52MS5DcmVhdGVHYW1lUmVxdWVzdBocLmdhbWVzLnYxLkNyZWF0ZUdhbWVSZXNwb25zZUJAWj5naXRodWIuY29tL2pvYW9tYWdmcmVpdGFzL3NsaWRlci1wcm90by9nYW1lcy92MTtnYW1lc19wcm90b192MWIGcHJvdG8z", [file_google_protobuf_timestamp]);
 
 /**
  * @generated from message games.v1.GameTile
@@ -78,14 +76,19 @@ export type GameData = Message<"games.v1.GameData"> & {
   tiles: GameTile[];
 
   /**
-   * @generated from field: puzzles.v1.Puzzle puzzle = 8;
-   */
-  puzzle?: Puzzle | undefined;
-
-  /**
-   * @generated from field: games.v1.GameStatus status = 9;
+   * @generated from field: games.v1.GameStatus status = 8;
    */
   status: GameStatus;
+
+  /**
+   * @generated from field: string puzzle_name = 9;
+   */
+  puzzleName: string;
+
+  /**
+   * @generated from field: string puzzle_tiles = 10;
+   */
+  puzzleTiles: string;
 };
 
 /**
@@ -170,14 +173,14 @@ export enum GameStatus {
   GS_STARTED = 1,
 
   /**
-   * @generated from enum value: GS_CONCLUDED = 2;
+   * @generated from enum value: GS_FINISHED_WIN = 2;
    */
-  GS_CONCLUDED = 2,
+  GS_FINISHED_WIN = 2,
 
   /**
-   * @generated from enum value: GS_FAILED = 3;
+   * @generated from enum value: GS_FINISHED_LOSE = 3;
    */
-  GS_FAILED = 3,
+  GS_FINISHED_LOSE = 3,
 }
 
 /**
