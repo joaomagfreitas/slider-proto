@@ -27,7 +27,7 @@ enum GameMove {
 
 message GameTile {
   uint32 position = 1;
-  bool ghost = 2;
+  bool is_ghost = 2;
 }
 
 message GameData {

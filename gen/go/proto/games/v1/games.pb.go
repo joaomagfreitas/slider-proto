@@ -175,7 +175,7 @@ func (GameMove) EnumDescriptor() ([]byte, []int) {
 type GameTile struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Position      uint32                 `protobuf:"varint,1,opt,name=position,proto3" json:"position,omitempty"`
-	Ghost         bool                   `protobuf:"varint,2,opt,name=ghost,proto3" json:"ghost,omitempty"`
+	IsGhost       bool                   `protobuf:"varint,2,opt,name=is_ghost,json=isGhost,proto3" json:"is_ghost,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -217,9 +217,9 @@ func (x *GameTile) GetPosition() uint32 {
 	return 0
 }
 
-func (x *GameTile) GetGhost() bool {
+func (x *GameTile) GetIsGhost() bool {
 	if x != nil {
-		return x.Ghost
+		return x.IsGhost
 	}
 	return false
 }
@@ -440,10 +440,10 @@ var File_proto_games_v1_games_proto protoreflect.FileDescriptor
 
 const file_proto_games_v1_games_proto_rawDesc = "" +
 	"\n" +
-	"\x1aproto/games/v1/games.proto\x12\bgames.v1\x1a\x1fgoogle/protobuf/timestamp.proto\"<\n" +
+	"\x1aproto/games/v1/games.proto\x12\bgames.v1\x1a\x1fgoogle/protobuf/timestamp.proto\"A\n" +
 	"\bGameTile\x12\x1a\n" +
-	"\bposition\x18\x01 \x01(\rR\bposition\x12\x14\n" +
-	"\x05ghost\x18\x02 \x01(\bR\x05ghost\"\xa9\x03\n" +
+	"\bposition\x18\x01 \x01(\rR\bposition\x12\x19\n" +
+	"\bis_ghost\x18\x02 \x01(\bR\aisGhost\"\xa9\x03\n" +
 	"\bGameData\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x121\n" +
 	"\bpowerups\x18\x02 \x03(\x0e2\x15.games.v1.GamePowerupR\bpowerups\x129\n" +
