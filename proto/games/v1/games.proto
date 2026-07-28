@@ -1,0 +1,55 @@
+syntax = "proto3";
+
+import "google/protobuf/timestamp.proto";
+
+package games.v1;
+
+option go_package = "github.com/joaomagfreitas/slider-proto/games/v1;games_proto_v1";
+
+enum GamePowerup {
+  GP_REVEAL_TILES = 0;
+  GP_SHUFFLE_TILES = 1;
+}
+
+enum GameStatus {
+  GS_CREATED = 0;
+  GS_STARTED = 1;
+  GS_FINISHED_WIN = 2;
+  GS_FINISHED_LOSE = 3;
+}
+
+enum GameMove {
+  GM_UP = 0;
+  GM_DOWN = 1;
+  GM_LEFT = 2;
+  GM_RIGHT = 3;
+}
+
+message GameTile {
+  uint32 position = 1;
+  bool is_ghost = 2;
+}
+
+message GameData {
+  string id = 1;
+  repeated GamePowerup powerups = 2;
+  google.protobuf.Timestamp started_at = 3;
+  google.protobuf.Timestamp ended_at = 4;
+  uint32 timer_sec = 5;
+  repeated GameMove moves = 6;
+  repeated GameTile tiles = 7;
+  GameStatus status = 8;
+  string puzzle_name = 9;
+  string puzzle_tiles_url = 10;
+}
+
+message CreateGameRequest {
+  optional string pack_slug = 1;
+  optional string puzzle_slug = 2;
+}
+
+message CreateGameResponse { GameData data = 1; }
+
+service gamesService {
+  rpc Create(CreateGameRequest) returns (CreateGameResponse);
+}
