@@ -162,6 +162,7 @@ type Puzzle struct {
 	Name          string                 `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
 	Slug          string                 `protobuf:"bytes,2,opt,name=slug,proto3" json:"slug,omitempty"`
 	TilesUrl      string                 `protobuf:"bytes,3,opt,name=tiles_url,json=tilesUrl,proto3" json:"tiles_url,omitempty"`
+	PackSlug      string                 `protobuf:"bytes,4,opt,name=pack_slug,json=packSlug,proto3" json:"pack_slug,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -213,6 +214,13 @@ func (x *Puzzle) GetSlug() string {
 func (x *Puzzle) GetTilesUrl() string {
 	if x != nil {
 		return x.TilesUrl
+	}
+	return ""
+}
+
+func (x *Puzzle) GetPackSlug() string {
+	if x != nil {
+		return x.PackSlug
 	}
 	return ""
 }
@@ -571,11 +579,12 @@ const file_proto_puzzles_v1_puzzles_proto_rawDesc = "" +
 	"\n" +
 	"difficulty\x18\x05 \x01(\tR\n" +
 	"difficulty\x12\x1a\n" +
-	"\bcategory\x18\x06 \x01(\tR\bcategory\"M\n" +
+	"\bcategory\x18\x06 \x01(\tR\bcategory\"j\n" +
 	"\x06Puzzle\x12\x12\n" +
 	"\x04name\x18\x01 \x01(\tR\x04name\x12\x12\n" +
 	"\x04slug\x18\x02 \x01(\tR\x04slug\x12\x1b\n" +
-	"\ttiles_url\x18\x03 \x01(\tR\btilesUrl\"\x1d\n" +
+	"\ttiles_url\x18\x03 \x01(\tR\btilesUrl\x12\x1b\n" +
+	"\tpack_slug\x18\x04 \x01(\tR\bpackSlug\"\x1d\n" +
 	"\x1bListPuzzleCategoriesRequest\"G\n" +
 	"\x17QueryPuzzlePacksRequest\x12\x1f\n" +
 	"\bcategory\x18\x01 \x01(\tH\x00R\bcategory\x88\x01\x01B\v\n" +

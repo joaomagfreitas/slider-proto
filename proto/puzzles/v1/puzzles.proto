@@ -22,6 +22,7 @@ message Puzzle {
   string name = 1;
   string slug = 2;
   string tiles_url = 3;
+  string pack_slug = 4;
 }
 
 message ListPuzzleCategoriesRequest {}
