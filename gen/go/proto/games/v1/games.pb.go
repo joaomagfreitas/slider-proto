@@ -236,6 +236,7 @@ type GameData struct {
 	Status         GameStatus             `protobuf:"varint,8,opt,name=status,proto3,enum=games.v1.GameStatus" json:"status,omitempty"`
 	PuzzleName     string                 `protobuf:"bytes,9,opt,name=puzzle_name,json=puzzleName,proto3" json:"puzzle_name,omitempty"`
 	PuzzleTilesUrl string                 `protobuf:"bytes,10,opt,name=puzzle_tiles_url,json=puzzleTilesUrl,proto3" json:"puzzle_tiles_url,omitempty"`
+	PuzzleSlug     string                 `protobuf:"bytes,11,opt,name=puzzle_slug,json=puzzleSlug,proto3" json:"puzzle_slug,omitempty"`
 	unknownFields  protoimpl.UnknownFields
 	sizeCache      protoimpl.SizeCache
 }
@@ -336,6 +337,13 @@ func (x *GameData) GetPuzzleName() string {
 func (x *GameData) GetPuzzleTilesUrl() string {
 	if x != nil {
 		return x.PuzzleTilesUrl
+	}
+	return ""
+}
+
+func (x *GameData) GetPuzzleSlug() string {
+	if x != nil {
+		return x.PuzzleSlug
 	}
 	return ""
 }
@@ -443,7 +451,7 @@ const file_proto_games_v1_games_proto_rawDesc = "" +
 	"\x1aproto/games/v1/games.proto\x12\bgames.v1\x1a\x1fgoogle/protobuf/timestamp.proto\"A\n" +
 	"\bGameTile\x12\x1a\n" +
 	"\bposition\x18\x01 \x01(\rR\bposition\x12\x19\n" +
-	"\bis_ghost\x18\x02 \x01(\bR\aisGhost\"\xa9\x03\n" +
+	"\bis_ghost\x18\x02 \x01(\bR\aisGhost\"\xca\x03\n" +
 	"\bGameData\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x121\n" +
 	"\bpowerups\x18\x02 \x03(\x0e2\x15.games.v1.GamePowerupR\bpowerups\x129\n" +
@@ -457,7 +465,9 @@ const file_proto_games_v1_games_proto_rawDesc = "" +
 	"\vpuzzle_name\x18\t \x01(\tR\n" +
 	"puzzleName\x12(\n" +
 	"\x10puzzle_tiles_url\x18\n" +
-	" \x01(\tR\x0epuzzleTilesUrl\"y\n" +
+	" \x01(\tR\x0epuzzleTilesUrl\x12\x1f\n" +
+	"\vpuzzle_slug\x18\v \x01(\tR\n" +
+	"puzzleSlug\"y\n" +
 	"\x11CreateGameRequest\x12 \n" +
 	"\tpack_slug\x18\x01 \x01(\tH\x00R\bpackSlug\x88\x01\x01\x12$\n" +
 	"\vpuzzle_slug\x18\x02 \x01(\tH\x01R\n" +
