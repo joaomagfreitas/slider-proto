@@ -9,6 +9,7 @@ package puzzles_proto_v1
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
+	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
 	reflect "reflect"
 	sync "sync"
 	unsafe "unsafe"
@@ -81,6 +82,7 @@ type PuzzlePack struct {
 	CoverUrl      string                 `protobuf:"bytes,4,opt,name=cover_url,json=coverUrl,proto3" json:"cover_url,omitempty"`
 	Difficulty    string                 `protobuf:"bytes,5,opt,name=difficulty,proto3" json:"difficulty,omitempty"`
 	Category      string                 `protobuf:"bytes,6,opt,name=category,proto3" json:"category,omitempty"`
+	CreatedAt     *timestamppb.Timestamp `protobuf:"bytes,7,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -155,6 +157,13 @@ func (x *PuzzlePack) GetCategory() string {
 		return x.Category
 	}
 	return ""
+}
+
+func (x *PuzzlePack) GetCreatedAt() *timestamppb.Timestamp {
+	if x != nil {
+		return x.CreatedAt
+	}
+	return nil
 }
 
 type Puzzle struct {
@@ -566,10 +575,10 @@ var File_proto_puzzles_v1_puzzles_proto protoreflect.FileDescriptor
 const file_proto_puzzles_v1_puzzles_proto_rawDesc = "" +
 	"\n" +
 	"\x1eproto/puzzles/v1/puzzles.proto\x12\n" +
-	"puzzles.v1\"8\n" +
+	"puzzles.v1\x1a\x1fgoogle/protobuf/timestamp.proto\"8\n" +
 	"\x0ePuzzleCategory\x12\x12\n" +
 	"\x04name\x18\x01 \x01(\tR\x04name\x12\x12\n" +
-	"\x04slug\x18\x02 \x01(\tR\x04slug\"\xaf\x01\n" +
+	"\x04slug\x18\x02 \x01(\tR\x04slug\"\xea\x01\n" +
 	"\n" +
 	"PuzzlePack\x12\x12\n" +
 	"\x04name\x18\x01 \x01(\tR\x04name\x12\x12\n" +
@@ -579,7 +588,9 @@ const file_proto_puzzles_v1_puzzles_proto_rawDesc = "" +
 	"\n" +
 	"difficulty\x18\x05 \x01(\tR\n" +
 	"difficulty\x12\x1a\n" +
-	"\bcategory\x18\x06 \x01(\tR\bcategory\"j\n" +
+	"\bcategory\x18\x06 \x01(\tR\bcategory\x129\n" +
+	"\n" +
+	"created_at\x18\a \x01(\v2\x1a.google.protobuf.TimestampR\tcreatedAt\"j\n" +
 	"\x06Puzzle\x12\x12\n" +
 	"\x04name\x18\x01 \x01(\tR\x04name\x12\x12\n" +
 	"\x04slug\x18\x02 \x01(\tR\x04slug\x12\x1b\n" +
@@ -634,25 +645,27 @@ var file_proto_puzzles_v1_puzzles_proto_goTypes = []any{
 	(*GetRandomPuzzleResponse)(nil),      // 8: puzzles.v1.GetRandomPuzzleResponse
 	(*ListPackPuzzlesRequest)(nil),       // 9: puzzles.v1.ListPackPuzzlesRequest
 	(*ListPackPuzzlesResponse)(nil),      // 10: puzzles.v1.ListPackPuzzlesResponse
+	(*timestamppb.Timestamp)(nil),        // 11: google.protobuf.Timestamp
 }
 var file_proto_puzzles_v1_puzzles_proto_depIdxs = []int32{
-	0,  // 0: puzzles.v1.ListPuzzleCategoriesResponse.categories:type_name -> puzzles.v1.PuzzleCategory
-	1,  // 1: puzzles.v1.QueryPuzzlePacksResponse.packs:type_name -> puzzles.v1.PuzzlePack
-	2,  // 2: puzzles.v1.GetRandomPuzzleResponse.puzzle:type_name -> puzzles.v1.Puzzle
-	2,  // 3: puzzles.v1.ListPackPuzzlesResponse.puzzles:type_name -> puzzles.v1.Puzzle
-	3,  // 4: puzzles.v1.PuzzlesService.ListCategories:input_type -> puzzles.v1.ListPuzzleCategoriesRequest
-	4,  // 5: puzzles.v1.PuzzlesService.QueryPacks:input_type -> puzzles.v1.QueryPuzzlePacksRequest
-	5,  // 6: puzzles.v1.PuzzlesService.GetRandomPuzzle:input_type -> puzzles.v1.GetRandomPuzzleRequest
-	9,  // 7: puzzles.v1.PuzzlesService.ListPackPuzzles:input_type -> puzzles.v1.ListPackPuzzlesRequest
-	6,  // 8: puzzles.v1.PuzzlesService.ListCategories:output_type -> puzzles.v1.ListPuzzleCategoriesResponse
-	7,  // 9: puzzles.v1.PuzzlesService.QueryPacks:output_type -> puzzles.v1.QueryPuzzlePacksResponse
-	8,  // 10: puzzles.v1.PuzzlesService.GetRandomPuzzle:output_type -> puzzles.v1.GetRandomPuzzleResponse
-	10, // 11: puzzles.v1.PuzzlesService.ListPackPuzzles:output_type -> puzzles.v1.ListPackPuzzlesResponse
-	8,  // [8:12] is the sub-list for method output_type
-	4,  // [4:8] is the sub-list for method input_type
-	4,  // [4:4] is the sub-list for extension type_name
-	4,  // [4:4] is the sub-list for extension extendee
-	0,  // [0:4] is the sub-list for field type_name
+	11, // 0: puzzles.v1.PuzzlePack.created_at:type_name -> google.protobuf.Timestamp
+	0,  // 1: puzzles.v1.ListPuzzleCategoriesResponse.categories:type_name -> puzzles.v1.PuzzleCategory
+	1,  // 2: puzzles.v1.QueryPuzzlePacksResponse.packs:type_name -> puzzles.v1.PuzzlePack
+	2,  // 3: puzzles.v1.GetRandomPuzzleResponse.puzzle:type_name -> puzzles.v1.Puzzle
+	2,  // 4: puzzles.v1.ListPackPuzzlesResponse.puzzles:type_name -> puzzles.v1.Puzzle
+	3,  // 5: puzzles.v1.PuzzlesService.ListCategories:input_type -> puzzles.v1.ListPuzzleCategoriesRequest
+	4,  // 6: puzzles.v1.PuzzlesService.QueryPacks:input_type -> puzzles.v1.QueryPuzzlePacksRequest
+	5,  // 7: puzzles.v1.PuzzlesService.GetRandomPuzzle:input_type -> puzzles.v1.GetRandomPuzzleRequest
+	9,  // 8: puzzles.v1.PuzzlesService.ListPackPuzzles:input_type -> puzzles.v1.ListPackPuzzlesRequest
+	6,  // 9: puzzles.v1.PuzzlesService.ListCategories:output_type -> puzzles.v1.ListPuzzleCategoriesResponse
+	7,  // 10: puzzles.v1.PuzzlesService.QueryPacks:output_type -> puzzles.v1.QueryPuzzlePacksResponse
+	8,  // 11: puzzles.v1.PuzzlesService.GetRandomPuzzle:output_type -> puzzles.v1.GetRandomPuzzleResponse
+	10, // 12: puzzles.v1.PuzzlesService.ListPackPuzzles:output_type -> puzzles.v1.ListPackPuzzlesResponse
+	9,  // [9:13] is the sub-list for method output_type
+	5,  // [5:9] is the sub-list for method input_type
+	5,  // [5:5] is the sub-list for extension type_name
+	5,  // [5:5] is the sub-list for extension extendee
+	0,  // [0:5] is the sub-list for field type_name
 }
 
 func init() { file_proto_puzzles_v1_puzzles_proto_init() }
