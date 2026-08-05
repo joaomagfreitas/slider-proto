@@ -17,7 +17,7 @@ message ListGlobalLeaderboardRequest {}
 
 message ListGlobalLeaderboardResponse { repeated Leaderboard leaderboard = 1; }
 
-message GetPlayerLeaderboardRequest { uint32 player_id = 1; }
+message GetPlayerLeaderboardRequest { int32 player_id = 1; }
 
 message GetPlayerLeaderboardResponse { Leaderboard leaderboard = 1; }
 

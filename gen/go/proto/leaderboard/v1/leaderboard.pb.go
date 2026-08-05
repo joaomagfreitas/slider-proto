@@ -187,7 +187,7 @@ func (x *ListGlobalLeaderboardResponse) GetLeaderboard() []*Leaderboard {
 
 type GetPlayerLeaderboardRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	PlayerId      uint32                 `protobuf:"varint,1,opt,name=player_id,json=playerId,proto3" json:"player_id,omitempty"`
+	PlayerId      int32                  `protobuf:"varint,1,opt,name=player_id,json=playerId,proto3" json:"player_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -222,7 +222,7 @@ func (*GetPlayerLeaderboardRequest) Descriptor() ([]byte, []int) {
 	return file_proto_leaderboard_v1_leaderboard_proto_rawDescGZIP(), []int{3}
 }
 
-func (x *GetPlayerLeaderboardRequest) GetPlayerId() uint32 {
+func (x *GetPlayerLeaderboardRequest) GetPlayerId() int32 {
 	if x != nil {
 		return x.PlayerId
 	}
@@ -291,7 +291,7 @@ const file_proto_leaderboard_v1_leaderboard_proto_rawDesc = "" +
 	"\x1dListGlobalLeaderboardResponse\x12=\n" +
 	"\vleaderboard\x18\x01 \x03(\v2\x1b.leaderboard.v1.LeaderboardR\vleaderboard\":\n" +
 	"\x1bGetPlayerLeaderboardRequest\x12\x1b\n" +
-	"\tplayer_id\x18\x01 \x01(\rR\bplayerId\"]\n" +
+	"\tplayer_id\x18\x01 \x01(\x05R\bplayerId\"]\n" +
 	"\x1cGetPlayerLeaderboardResponse\x12=\n" +
 	"\vleaderboard\x18\x01 \x01(\v2\x1b.leaderboard.v1.LeaderboardR\vleaderboard2\xe0\x01\n" +
 	"\x12leaderboardService\x12c\n" +
