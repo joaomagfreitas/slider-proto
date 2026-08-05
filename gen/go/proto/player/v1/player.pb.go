@@ -23,7 +23,7 @@ const (
 
 type Player struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Slug          string                 `protobuf:"bytes,1,opt,name=slug,proto3" json:"slug,omitempty"`
+	Id            string                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 	Name          string                 `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
 	AvatarUrl     string                 `protobuf:"bytes,3,opt,name=avatar_url,json=avatarUrl,proto3" json:"avatar_url,omitempty"`
 	unknownFields protoimpl.UnknownFields
@@ -60,9 +60,9 @@ func (*Player) Descriptor() ([]byte, []int) {
 	return file_proto_player_v1_player_proto_rawDescGZIP(), []int{0}
 }
 
-func (x *Player) GetSlug() string {
+func (x *Player) GetId() string {
 	if x != nil {
-		return x.Slug
+		return x.Id
 	}
 	return ""
 }
@@ -165,9 +165,9 @@ var File_proto_player_v1_player_proto protoreflect.FileDescriptor
 
 const file_proto_player_v1_player_proto_rawDesc = "" +
 	"\n" +
-	"\x1cproto/player/v1/player.proto\x12\tplayer.v1\"O\n" +
-	"\x06Player\x12\x12\n" +
-	"\x04slug\x18\x01 \x01(\tR\x04slug\x12\x12\n" +
+	"\x1cproto/player/v1/player.proto\x12\tplayer.v1\"K\n" +
+	"\x06Player\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\tR\x02id\x12\x12\n" +
 	"\x04name\x18\x02 \x01(\tR\x04name\x12\x1d\n" +
 	"\n" +
 	"avatar_url\x18\x03 \x01(\tR\tavatarUrl\"\x1b\n" +

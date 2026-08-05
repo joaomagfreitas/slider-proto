@@ -10,16 +10,16 @@ import type { Message } from "@bufbuild/protobuf";
  * Describes the file proto/player/v1/player.proto.
  */
 export const file_proto_player_v1_player: GenFile = /*@__PURE__*/
-  fileDesc("Chxwcm90by9wbGF5ZXIvdjEvcGxheWVyLnByb3RvEglwbGF5ZXIudjEiOAoGUGxheWVyEgwKBHNsdWcYASABKAkSDAoEbmFtZRgCIAEoCRISCgphdmF0YXJfdXJsGAMgASgJIhsKGUNyZWF0ZVJhbmRvbVBsYXllclJlcXVlc3QiPwoaQ3JlYXRlUmFuZG9tUGxheWVyUmVzcG9uc2USIQoGcGxheWVyGAEgASgLMhEucGxheWVyLnYxLlBsYXllcjJsCg1wbGF5ZXJTZXJ2aWNlElsKDENyZWF0ZVJhbmRvbRIkLnBsYXllci52MS5DcmVhdGVSYW5kb21QbGF5ZXJSZXF1ZXN0GiUucGxheWVyLnYxLkNyZWF0ZVJhbmRvbVBsYXllclJlc3BvbnNlQkJaQGdpdGh1Yi5jb20vam9hb21hZ2ZyZWl0YXMvc2xpZGVyLXByb3RvL3BsYXllci92MTtwbGF5ZXJfcHJvdG9fdjFiBnByb3RvMw");
+  fileDesc("Chxwcm90by9wbGF5ZXIvdjEvcGxheWVyLnByb3RvEglwbGF5ZXIudjEiNgoGUGxheWVyEgoKAmlkGAEgASgJEgwKBG5hbWUYAiABKAkSEgoKYXZhdGFyX3VybBgDIAEoCSIbChlDcmVhdGVSYW5kb21QbGF5ZXJSZXF1ZXN0Ij8KGkNyZWF0ZVJhbmRvbVBsYXllclJlc3BvbnNlEiEKBnBsYXllchgBIAEoCzIRLnBsYXllci52MS5QbGF5ZXIybAoNcGxheWVyU2VydmljZRJbCgxDcmVhdGVSYW5kb20SJC5wbGF5ZXIudjEuQ3JlYXRlUmFuZG9tUGxheWVyUmVxdWVzdBolLnBsYXllci52MS5DcmVhdGVSYW5kb21QbGF5ZXJSZXNwb25zZUJCWkBnaXRodWIuY29tL2pvYW9tYWdmcmVpdGFzL3NsaWRlci1wcm90by9wbGF5ZXIvdjE7cGxheWVyX3Byb3RvX3YxYgZwcm90bzM");
 
 /**
  * @generated from message player.v1.Player
  */
 export type Player = Message<"player.v1.Player"> & {
   /**
-   * @generated from field: string slug = 1;
+   * @generated from field: string id = 1;
    */
-  slug: string;
+  id: string;
 
   /**
    * @generated from field: string name = 2;

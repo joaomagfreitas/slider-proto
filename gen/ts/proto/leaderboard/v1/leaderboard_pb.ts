@@ -10,7 +10,7 @@ import type { Message } from "@bufbuild/protobuf";
  * Describes the file proto/leaderboard/v1/leaderboard.proto.
  */
 export const file_proto_leaderboard_v1_leaderboard: GenFile = /*@__PURE__*/
-  fileDesc("CiZwcm90by9sZWFkZXJib2FyZC92MS9sZWFkZXJib2FyZC5wcm90bxIObGVhZGVyYm9hcmQudjEimgEKC0xlYWRlcmJvYXJkEgwKBHJhbmsYASABKA0SEwoLcGxheWVyX25hbWUYAiABKAkSEgoKZWxvX3JhdGluZxgDIAEoDRIiChphdmVyYWdlX2NvbXBsZXRpb25fdGltZV9tcxgEIAEoBBIVCg1hdmVyYWdlX21vdmVzGAUgASgNEhkKEWNvbXBsZXRlZF9wdXp6bGVzGAYgASgNIh4KHExpc3RHbG9iYWxMZWFkZXJib2FyZFJlcXVlc3QiUQodTGlzdEdsb2JhbExlYWRlcmJvYXJkUmVzcG9uc2USMAoLbGVhZGVyYm9hcmQYASADKAsyGy5sZWFkZXJib2FyZC52MS5MZWFkZXJib2FyZCIwChtHZXRQbGF5ZXJMZWFkZXJib2FyZFJlcXVlc3QSEQoJcGxheWVyX2lkGAEgASgFIlAKHEdldFBsYXllckxlYWRlcmJvYXJkUmVzcG9uc2USMAoLbGVhZGVyYm9hcmQYASABKAsyGy5sZWFkZXJib2FyZC52MS5MZWFkZXJib2FyZDLgAQoSbGVhZGVyYm9hcmRTZXJ2aWNlEmMKBlBsYXllchIrLmxlYWRlcmJvYXJkLnYxLkdldFBsYXllckxlYWRlcmJvYXJkUmVxdWVzdBosLmxlYWRlcmJvYXJkLnYxLkdldFBsYXllckxlYWRlcmJvYXJkUmVzcG9uc2USZQoGR2xvYmFsEiwubGVhZGVyYm9hcmQudjEuTGlzdEdsb2JhbExlYWRlcmJvYXJkUmVxdWVzdBotLmxlYWRlcmJvYXJkLnYxLkxpc3RHbG9iYWxMZWFkZXJib2FyZFJlc3BvbnNlQkxaSmdpdGh1Yi5jb20vam9hb21hZ2ZyZWl0YXMvc2xpZGVyLXByb3RvL2xlYWRlcmJvYXJkL3YxO2xlYWRlcmJvYXJkX3Byb3RvX3YxYgZwcm90bzM");
+  fileDesc("CiZwcm90by9sZWFkZXJib2FyZC92MS9sZWFkZXJib2FyZC5wcm90bxIObGVhZGVyYm9hcmQudjEirQEKC0xlYWRlcmJvYXJkEgwKBHJhbmsYASABKA0SEQoJcGxheWVyX2lkGAIgASgJEhMKC3BsYXllcl9uYW1lGAMgASgJEhIKCmVsb19yYXRpbmcYBCABKA0SIgoaYXZlcmFnZV9jb21wbGV0aW9uX3RpbWVfbXMYBSABKAQSFQoNYXZlcmFnZV9tb3ZlcxgGIAEoDRIZChFjb21wbGV0ZWRfcHV6emxlcxgIIAEoDSIeChxMaXN0R2xvYmFsTGVhZGVyYm9hcmRSZXF1ZXN0IlEKHUxpc3RHbG9iYWxMZWFkZXJib2FyZFJlc3BvbnNlEjAKC2xlYWRlcmJvYXJkGAEgAygLMhsubGVhZGVyYm9hcmQudjEuTGVhZGVyYm9hcmQiMAobR2V0UGxheWVyTGVhZGVyYm9hcmRSZXF1ZXN0EhEKCXBsYXllcl9pZBgBIAEoCSJQChxHZXRQbGF5ZXJMZWFkZXJib2FyZFJlc3BvbnNlEjAKC2xlYWRlcmJvYXJkGAEgASgLMhsubGVhZGVyYm9hcmQudjEuTGVhZGVyYm9hcmQy4AEKEmxlYWRlcmJvYXJkU2VydmljZRJjCgZQbGF5ZXISKy5sZWFkZXJib2FyZC52MS5HZXRQbGF5ZXJMZWFkZXJib2FyZFJlcXVlc3QaLC5sZWFkZXJib2FyZC52MS5HZXRQbGF5ZXJMZWFkZXJib2FyZFJlc3BvbnNlEmUKBkdsb2JhbBIsLmxlYWRlcmJvYXJkLnYxLkxpc3RHbG9iYWxMZWFkZXJib2FyZFJlcXVlc3QaLS5sZWFkZXJib2FyZC52MS5MaXN0R2xvYmFsTGVhZGVyYm9hcmRSZXNwb25zZUJMWkpnaXRodWIuY29tL2pvYW9tYWdmcmVpdGFzL3NsaWRlci1wcm90by9sZWFkZXJib2FyZC92MTtsZWFkZXJib2FyZF9wcm90b192MWIGcHJvdG8z");
 
 /**
  * @generated from message leaderboard.v1.Leaderboard
@@ -22,27 +22,32 @@ export type Leaderboard = Message<"leaderboard.v1.Leaderboard"> & {
   rank: number;
 
   /**
-   * @generated from field: string player_name = 2;
+   * @generated from field: string player_id = 2;
+   */
+  playerId: string;
+
+  /**
+   * @generated from field: string player_name = 3;
    */
   playerName: string;
 
   /**
-   * @generated from field: uint32 elo_rating = 3;
+   * @generated from field: uint32 elo_rating = 4;
    */
   eloRating: number;
 
   /**
-   * @generated from field: uint64 average_completion_time_ms = 4;
+   * @generated from field: uint64 average_completion_time_ms = 5;
    */
   averageCompletionTimeMs: bigint;
 
   /**
-   * @generated from field: uint32 average_moves = 5;
+   * @generated from field: uint32 average_moves = 6;
    */
   averageMoves: number;
 
   /**
-   * @generated from field: uint32 completed_puzzles = 6;
+   * @generated from field: uint32 completed_puzzles = 8;
    */
   completedPuzzles: number;
 };
@@ -89,9 +94,9 @@ export const ListGlobalLeaderboardResponseSchema: GenMessage<ListGlobalLeaderboa
  */
 export type GetPlayerLeaderboardRequest = Message<"leaderboard.v1.GetPlayerLeaderboardRequest"> & {
   /**
-   * @generated from field: int32 player_id = 1;
+   * @generated from field: string player_id = 1;
    */
-  playerId: number;
+  playerId: string;
 };
 
 /**
