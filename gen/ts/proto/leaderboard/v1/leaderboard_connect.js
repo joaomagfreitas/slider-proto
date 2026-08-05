@@ -13,19 +13,19 @@ export const leaderboardService = {
   typeName: "leaderboard.v1.leaderboardService",
   methods: {
     /**
-     * @generated from rpc leaderboard.v1.leaderboardService.Player
+     * @generated from rpc leaderboard.v1.leaderboardService.GetPlayerLeaderboard
      */
-    player: {
-      name: "Player",
+    getPlayerLeaderboard: {
+      name: "GetPlayerLeaderboard",
       I: GetPlayerLeaderboardRequest,
       O: GetPlayerLeaderboardResponse,
       kind: MethodKind.Unary,
     },
     /**
-     * @generated from rpc leaderboard.v1.leaderboardService.Global
+     * @generated from rpc leaderboard.v1.leaderboardService.ListGlobalLeaderboard
      */
-    global: {
-      name: "Global",
+    listGlobalLeaderboard: {
+      name: "ListGlobalLeaderboard",
       I: ListGlobalLeaderboardRequest,
       O: ListGlobalLeaderboardResponse,
       kind: MethodKind.Unary,
