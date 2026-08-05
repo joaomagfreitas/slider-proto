@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+package leaderboard.v1;
+
+option go_package = "github.com/joaomagfreitas/slider-proto/leaderboard/v1;leaderboard_proto_v1";
+
+message Leaderboard {
+  uint32 rank = 1;
+  string player_name = 2;
+  uint32 elo_rating = 3;
+  uint32 average_completion_time_ms = 4;
+  uint32 average_moves = 5;
+  uint32 completed_moves = 6;
+}
+
+message ListGlobalLeaderboardRequest {}
+
+message ListGlobalLeaderboardResponse { repeated Leaderboard leaderboard = 1; }
+
+message GetPlayerLeaderboardRequest { uint32 player_id = 1; }
+
+message GetPlayerLeaderboardResponse { Leaderboard leaderboard = 1; }
+
+service leaderboardService {
+  rpc Player(GetPlayerLeaderboardRequest)
+      returns (GetPlayerLeaderboardResponse);
+
+  rpc Global(ListGlobalLeaderboardRequest)
+      returns (ListGlobalLeaderboardResponse);
+}
