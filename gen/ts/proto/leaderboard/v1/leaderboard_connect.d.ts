@@ -13,19 +13,19 @@ export declare const leaderboardService: {
   readonly typeName: "leaderboard.v1.leaderboardService",
   readonly methods: {
     /**
-     * @generated from rpc leaderboard.v1.leaderboardService.Player
+     * @generated from rpc leaderboard.v1.leaderboardService.GetPlayerLeaderboard
      */
-    readonly player: {
-      readonly name: "Player",
+    readonly getPlayerLeaderboard: {
+      readonly name: "GetPlayerLeaderboard",
       readonly I: typeof GetPlayerLeaderboardRequest,
       readonly O: typeof GetPlayerLeaderboardResponse,
       readonly kind: MethodKind.Unary,
     },
     /**
-     * @generated from rpc leaderboard.v1.leaderboardService.Global
+     * @generated from rpc leaderboard.v1.leaderboardService.ListGlobalLeaderboard
      */
-    readonly global: {
-      readonly name: "Global",
+    readonly listGlobalLeaderboard: {
+      readonly name: "ListGlobalLeaderboard",
       readonly I: typeof ListGlobalLeaderboardRequest,
       readonly O: typeof ListGlobalLeaderboardResponse,
       readonly kind: MethodKind.Unary,

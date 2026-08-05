@@ -19,16 +19,16 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	LeaderboardService_Player_FullMethodName = "/leaderboard.v1.leaderboardService/Player"
-	LeaderboardService_Global_FullMethodName = "/leaderboard.v1.leaderboardService/Global"
+	LeaderboardService_GetPlayerLeaderboard_FullMethodName  = "/leaderboard.v1.leaderboardService/GetPlayerLeaderboard"
+	LeaderboardService_ListGlobalLeaderboard_FullMethodName = "/leaderboard.v1.leaderboardService/ListGlobalLeaderboard"
 )
 
 // LeaderboardServiceClient is the client API for LeaderboardService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type LeaderboardServiceClient interface {
-	Player(ctx context.Context, in *GetPlayerLeaderboardRequest, opts ...grpc.CallOption) (*GetPlayerLeaderboardResponse, error)
-	Global(ctx context.Context, in *ListGlobalLeaderboardRequest, opts ...grpc.CallOption) (*ListGlobalLeaderboardResponse, error)
+	GetPlayerLeaderboard(ctx context.Context, in *GetPlayerLeaderboardRequest, opts ...grpc.CallOption) (*GetPlayerLeaderboardResponse, error)
+	ListGlobalLeaderboard(ctx context.Context, in *ListGlobalLeaderboardRequest, opts ...grpc.CallOption) (*ListGlobalLeaderboardResponse, error)
 }
 
 type leaderboardServiceClient struct {
@@ -39,20 +39,20 @@ func NewLeaderboardServiceClient(cc grpc.ClientConnInterface) LeaderboardService
 	return &leaderboardServiceClient{cc}
 }
 
-func (c *leaderboardServiceClient) Player(ctx context.Context, in *GetPlayerLeaderboardRequest, opts ...grpc.CallOption) (*GetPlayerLeaderboardResponse, error) {
+func (c *leaderboardServiceClient) GetPlayerLeaderboard(ctx context.Context, in *GetPlayerLeaderboardRequest, opts ...grpc.CallOption) (*GetPlayerLeaderboardResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetPlayerLeaderboardResponse)
-	err := c.cc.Invoke(ctx, LeaderboardService_Player_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, LeaderboardService_GetPlayerLeaderboard_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *leaderboardServiceClient) Global(ctx context.Context, in *ListGlobalLeaderboardRequest, opts ...grpc.CallOption) (*ListGlobalLeaderboardResponse, error) {
+func (c *leaderboardServiceClient) ListGlobalLeaderboard(ctx context.Context, in *ListGlobalLeaderboardRequest, opts ...grpc.CallOption) (*ListGlobalLeaderboardResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(ListGlobalLeaderboardResponse)
-	err := c.cc.Invoke(ctx, LeaderboardService_Global_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, LeaderboardService_ListGlobalLeaderboard_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -63,8 +63,8 @@ func (c *leaderboardServiceClient) Global(ctx context.Context, in *ListGlobalLea
 // All implementations must embed UnimplementedLeaderboardServiceServer
 // for forward compatibility.
 type LeaderboardServiceServer interface {
-	Player(context.Context, *GetPlayerLeaderboardRequest) (*GetPlayerLeaderboardResponse, error)
-	Global(context.Context, *ListGlobalLeaderboardRequest) (*ListGlobalLeaderboardResponse, error)
+	GetPlayerLeaderboard(context.Context, *GetPlayerLeaderboardRequest) (*GetPlayerLeaderboardResponse, error)
+	ListGlobalLeaderboard(context.Context, *ListGlobalLeaderboardRequest) (*ListGlobalLeaderboardResponse, error)
 	mustEmbedUnimplementedLeaderboardServiceServer()
 }
 
@@ -75,11 +75,11 @@ type LeaderboardServiceServer interface {
 // pointer dereference when methods are called.
 type UnimplementedLeaderboardServiceServer struct{}
 
-func (UnimplementedLeaderboardServiceServer) Player(context.Context, *GetPlayerLeaderboardRequest) (*GetPlayerLeaderboardResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Player not implemented")
+func (UnimplementedLeaderboardServiceServer) GetPlayerLeaderboard(context.Context, *GetPlayerLeaderboardRequest) (*GetPlayerLeaderboardResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetPlayerLeaderboard not implemented")
 }
-func (UnimplementedLeaderboardServiceServer) Global(context.Context, *ListGlobalLeaderboardRequest) (*ListGlobalLeaderboardResponse, error) {
-	return nil, status.Error(codes.Unimplemented, "method Global not implemented")
+func (UnimplementedLeaderboardServiceServer) ListGlobalLeaderboard(context.Context, *ListGlobalLeaderboardRequest) (*ListGlobalLeaderboardResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method ListGlobalLeaderboard not implemented")
 }
 func (UnimplementedLeaderboardServiceServer) mustEmbedUnimplementedLeaderboardServiceServer() {}
 func (UnimplementedLeaderboardServiceServer) testEmbeddedByValue()                            {}
@@ -102,38 +102,38 @@ func RegisterLeaderboardServiceServer(s grpc.ServiceRegistrar, srv LeaderboardSe
 	s.RegisterService(&LeaderboardService_ServiceDesc, srv)
 }
 
-func _LeaderboardService_Player_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _LeaderboardService_GetPlayerLeaderboard_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetPlayerLeaderboardRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(LeaderboardServiceServer).Player(ctx, in)
+		return srv.(LeaderboardServiceServer).GetPlayerLeaderboard(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: LeaderboardService_Player_FullMethodName,
+		FullMethod: LeaderboardService_GetPlayerLeaderboard_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(LeaderboardServiceServer).Player(ctx, req.(*GetPlayerLeaderboardRequest))
+		return srv.(LeaderboardServiceServer).GetPlayerLeaderboard(ctx, req.(*GetPlayerLeaderboardRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _LeaderboardService_Global_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _LeaderboardService_ListGlobalLeaderboard_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(ListGlobalLeaderboardRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(LeaderboardServiceServer).Global(ctx, in)
+		return srv.(LeaderboardServiceServer).ListGlobalLeaderboard(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: LeaderboardService_Global_FullMethodName,
+		FullMethod: LeaderboardService_ListGlobalLeaderboard_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(LeaderboardServiceServer).Global(ctx, req.(*ListGlobalLeaderboardRequest))
+		return srv.(LeaderboardServiceServer).ListGlobalLeaderboard(ctx, req.(*ListGlobalLeaderboardRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -146,12 +146,12 @@ var LeaderboardService_ServiceDesc = grpc.ServiceDesc{
 	HandlerType: (*LeaderboardServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "Player",
-			Handler:    _LeaderboardService_Player_Handler,
+			MethodName: "GetPlayerLeaderboard",
+			Handler:    _LeaderboardService_GetPlayerLeaderboard_Handler,
 		},
 		{
-			MethodName: "Global",
-			Handler:    _LeaderboardService_Global_Handler,
+			MethodName: "ListGlobalLeaderboard",
+			Handler:    _LeaderboardService_ListGlobalLeaderboard_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

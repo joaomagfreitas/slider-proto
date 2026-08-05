@@ -302,10 +302,10 @@ const file_proto_leaderboard_v1_leaderboard_proto_rawDesc = "" +
 	"\x1bGetPlayerLeaderboardRequest\x12\x1b\n" +
 	"\tplayer_id\x18\x01 \x01(\tR\bplayerId\"]\n" +
 	"\x1cGetPlayerLeaderboardResponse\x12=\n" +
-	"\vleaderboard\x18\x01 \x01(\v2\x1b.leaderboard.v1.LeaderboardR\vleaderboard2\xe0\x01\n" +
-	"\x12leaderboardService\x12c\n" +
-	"\x06Player\x12+.leaderboard.v1.GetPlayerLeaderboardRequest\x1a,.leaderboard.v1.GetPlayerLeaderboardResponse\x12e\n" +
-	"\x06Global\x12,.leaderboard.v1.ListGlobalLeaderboardRequest\x1a-.leaderboard.v1.ListGlobalLeaderboardResponseBLZJgithub.com/joaomagfreitas/slider-proto/leaderboard/v1;leaderboard_proto_v1b\x06proto3"
+	"\vleaderboard\x18\x01 \x01(\v2\x1b.leaderboard.v1.LeaderboardR\vleaderboard2\xfd\x01\n" +
+	"\x12leaderboardService\x12q\n" +
+	"\x14GetPlayerLeaderboard\x12+.leaderboard.v1.GetPlayerLeaderboardRequest\x1a,.leaderboard.v1.GetPlayerLeaderboardResponse\x12t\n" +
+	"\x15ListGlobalLeaderboard\x12,.leaderboard.v1.ListGlobalLeaderboardRequest\x1a-.leaderboard.v1.ListGlobalLeaderboardResponseBLZJgithub.com/joaomagfreitas/slider-proto/leaderboard/v1;leaderboard_proto_v1b\x06proto3"
 
 var (
 	file_proto_leaderboard_v1_leaderboard_proto_rawDescOnce sync.Once
@@ -330,10 +330,10 @@ var file_proto_leaderboard_v1_leaderboard_proto_goTypes = []any{
 var file_proto_leaderboard_v1_leaderboard_proto_depIdxs = []int32{
 	0, // 0: leaderboard.v1.ListGlobalLeaderboardResponse.leaderboard:type_name -> leaderboard.v1.Leaderboard
 	0, // 1: leaderboard.v1.GetPlayerLeaderboardResponse.leaderboard:type_name -> leaderboard.v1.Leaderboard
-	3, // 2: leaderboard.v1.leaderboardService.Player:input_type -> leaderboard.v1.GetPlayerLeaderboardRequest
-	1, // 3: leaderboard.v1.leaderboardService.Global:input_type -> leaderboard.v1.ListGlobalLeaderboardRequest
-	4, // 4: leaderboard.v1.leaderboardService.Player:output_type -> leaderboard.v1.GetPlayerLeaderboardResponse
-	2, // 5: leaderboard.v1.leaderboardService.Global:output_type -> leaderboard.v1.ListGlobalLeaderboardResponse
+	3, // 2: leaderboard.v1.leaderboardService.GetPlayerLeaderboard:input_type -> leaderboard.v1.GetPlayerLeaderboardRequest
+	1, // 3: leaderboard.v1.leaderboardService.ListGlobalLeaderboard:input_type -> leaderboard.v1.ListGlobalLeaderboardRequest
+	4, // 4: leaderboard.v1.leaderboardService.GetPlayerLeaderboard:output_type -> leaderboard.v1.GetPlayerLeaderboardResponse
+	2, // 5: leaderboard.v1.leaderboardService.ListGlobalLeaderboard:output_type -> leaderboard.v1.ListGlobalLeaderboardResponse
 	4, // [4:6] is the sub-list for method output_type
 	2, // [2:4] is the sub-list for method input_type
 	2, // [2:2] is the sub-list for extension type_name

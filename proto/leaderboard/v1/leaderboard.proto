@@ -23,9 +23,9 @@ message GetPlayerLeaderboardRequest { string player_id = 1; }
 message GetPlayerLeaderboardResponse { Leaderboard leaderboard = 1; }
 
 service leaderboardService {
-  rpc Player(GetPlayerLeaderboardRequest)
+  rpc GetPlayerLeaderboard(GetPlayerLeaderboardRequest)
       returns (GetPlayerLeaderboardResponse);
 
-  rpc Global(ListGlobalLeaderboardRequest)
+  rpc ListGlobalLeaderboard(ListGlobalLeaderboardRequest)
       returns (ListGlobalLeaderboardResponse);
 }
