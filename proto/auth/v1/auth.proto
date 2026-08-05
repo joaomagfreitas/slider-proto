@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+package auth.v1;
+
+import "google/protobuf/timestamp.proto";
+
+option go_package = "github.com/joaomagfreitas/slider-proto/auth/v1;auth_proto_v1";
+
+message GuestToken {
+  string value = 1;
+  string player_slug = 2;
+  google.protobuf.Timestamp expires_at = 3;
+}
+
+message NewGuestTokenRequest {}
+
+message NewGuestTokenResponse { GuestToken token = 1; }
+
+message CheckGuestTokenRequest {
+  string value = 1;
+  string player_slug = 2;
+}
+
+message CheckGuestTokenResponse { bool valid = 1; }
+
+service authService {
+  rpc NewGuestToken(NewGuestTokenRequest) returns (NewGuestTokenResponse);
+  rpc CheckGuestToken(CheckGuestTokenRequest) returns (CheckGuestTokenResponse);
+}
