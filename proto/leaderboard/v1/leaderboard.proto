@@ -6,18 +6,19 @@ option go_package = "github.com/joaomagfreitas/slider-proto/leaderboard/v1;leade
 
 message Leaderboard {
   uint32 rank = 1;
-  string player_name = 2;
-  uint32 elo_rating = 3;
-  uint64 average_completion_time_ms = 4;
-  uint32 average_moves = 5;
-  uint32 completed_puzzles = 6;
+  string player_id = 2;
+  string player_name = 3;
+  uint32 elo_rating = 4;
+  uint64 average_completion_time_ms = 5;
+  uint32 average_moves = 6;
+  uint32 completed_puzzles = 8;
 }
 
 message ListGlobalLeaderboardRequest {}
 
 message ListGlobalLeaderboardResponse { repeated Leaderboard leaderboard = 1; }
 
-message GetPlayerLeaderboardRequest { int32 player_id = 1; }
+message GetPlayerLeaderboardRequest { string player_id = 1; }
 
 message GetPlayerLeaderboardResponse { Leaderboard leaderboard = 1; }
 

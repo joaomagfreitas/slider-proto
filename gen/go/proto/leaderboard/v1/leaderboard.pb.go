@@ -24,11 +24,12 @@ const (
 type Leaderboard struct {
 	state                   protoimpl.MessageState `protogen:"open.v1"`
 	Rank                    uint32                 `protobuf:"varint,1,opt,name=rank,proto3" json:"rank,omitempty"`
-	PlayerName              string                 `protobuf:"bytes,2,opt,name=player_name,json=playerName,proto3" json:"player_name,omitempty"`
-	EloRating               uint32                 `protobuf:"varint,3,opt,name=elo_rating,json=eloRating,proto3" json:"elo_rating,omitempty"`
-	AverageCompletionTimeMs uint64                 `protobuf:"varint,4,opt,name=average_completion_time_ms,json=averageCompletionTimeMs,proto3" json:"average_completion_time_ms,omitempty"`
-	AverageMoves            uint32                 `protobuf:"varint,5,opt,name=average_moves,json=averageMoves,proto3" json:"average_moves,omitempty"`
-	CompletedPuzzles        uint32                 `protobuf:"varint,6,opt,name=completed_puzzles,json=completedPuzzles,proto3" json:"completed_puzzles,omitempty"`
+	PlayerId                string                 `protobuf:"bytes,2,opt,name=player_id,json=playerId,proto3" json:"player_id,omitempty"`
+	PlayerName              string                 `protobuf:"bytes,3,opt,name=player_name,json=playerName,proto3" json:"player_name,omitempty"`
+	EloRating               uint32                 `protobuf:"varint,4,opt,name=elo_rating,json=eloRating,proto3" json:"elo_rating,omitempty"`
+	AverageCompletionTimeMs uint64                 `protobuf:"varint,5,opt,name=average_completion_time_ms,json=averageCompletionTimeMs,proto3" json:"average_completion_time_ms,omitempty"`
+	AverageMoves            uint32                 `protobuf:"varint,6,opt,name=average_moves,json=averageMoves,proto3" json:"average_moves,omitempty"`
+	CompletedPuzzles        uint32                 `protobuf:"varint,8,opt,name=completed_puzzles,json=completedPuzzles,proto3" json:"completed_puzzles,omitempty"`
 	unknownFields           protoimpl.UnknownFields
 	sizeCache               protoimpl.SizeCache
 }
@@ -68,6 +69,13 @@ func (x *Leaderboard) GetRank() uint32 {
 		return x.Rank
 	}
 	return 0
+}
+
+func (x *Leaderboard) GetPlayerId() string {
+	if x != nil {
+		return x.PlayerId
+	}
+	return ""
 }
 
 func (x *Leaderboard) GetPlayerName() string {
@@ -187,7 +195,7 @@ func (x *ListGlobalLeaderboardResponse) GetLeaderboard() []*Leaderboard {
 
 type GetPlayerLeaderboardRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	PlayerId      int32                  `protobuf:"varint,1,opt,name=player_id,json=playerId,proto3" json:"player_id,omitempty"`
+	PlayerId      string                 `protobuf:"bytes,1,opt,name=player_id,json=playerId,proto3" json:"player_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -222,11 +230,11 @@ func (*GetPlayerLeaderboardRequest) Descriptor() ([]byte, []int) {
 	return file_proto_leaderboard_v1_leaderboard_proto_rawDescGZIP(), []int{3}
 }
 
-func (x *GetPlayerLeaderboardRequest) GetPlayerId() int32 {
+func (x *GetPlayerLeaderboardRequest) GetPlayerId() string {
 	if x != nil {
 		return x.PlayerId
 	}
-	return 0
+	return ""
 }
 
 type GetPlayerLeaderboardResponse struct {
@@ -277,21 +285,22 @@ var File_proto_leaderboard_v1_leaderboard_proto protoreflect.FileDescriptor
 
 const file_proto_leaderboard_v1_leaderboard_proto_rawDesc = "" +
 	"\n" +
-	"&proto/leaderboard/v1/leaderboard.proto\x12\x0eleaderboard.v1\"\xf0\x01\n" +
+	"&proto/leaderboard/v1/leaderboard.proto\x12\x0eleaderboard.v1\"\x8d\x02\n" +
 	"\vLeaderboard\x12\x12\n" +
-	"\x04rank\x18\x01 \x01(\rR\x04rank\x12\x1f\n" +
-	"\vplayer_name\x18\x02 \x01(\tR\n" +
+	"\x04rank\x18\x01 \x01(\rR\x04rank\x12\x1b\n" +
+	"\tplayer_id\x18\x02 \x01(\tR\bplayerId\x12\x1f\n" +
+	"\vplayer_name\x18\x03 \x01(\tR\n" +
 	"playerName\x12\x1d\n" +
 	"\n" +
-	"elo_rating\x18\x03 \x01(\rR\teloRating\x12;\n" +
-	"\x1aaverage_completion_time_ms\x18\x04 \x01(\x04R\x17averageCompletionTimeMs\x12#\n" +
-	"\raverage_moves\x18\x05 \x01(\rR\faverageMoves\x12+\n" +
-	"\x11completed_puzzles\x18\x06 \x01(\rR\x10completedPuzzles\"\x1e\n" +
+	"elo_rating\x18\x04 \x01(\rR\teloRating\x12;\n" +
+	"\x1aaverage_completion_time_ms\x18\x05 \x01(\x04R\x17averageCompletionTimeMs\x12#\n" +
+	"\raverage_moves\x18\x06 \x01(\rR\faverageMoves\x12+\n" +
+	"\x11completed_puzzles\x18\b \x01(\rR\x10completedPuzzles\"\x1e\n" +
 	"\x1cListGlobalLeaderboardRequest\"^\n" +
 	"\x1dListGlobalLeaderboardResponse\x12=\n" +
 	"\vleaderboard\x18\x01 \x03(\v2\x1b.leaderboard.v1.LeaderboardR\vleaderboard\":\n" +
 	"\x1bGetPlayerLeaderboardRequest\x12\x1b\n" +
-	"\tplayer_id\x18\x01 \x01(\x05R\bplayerId\"]\n" +
+	"\tplayer_id\x18\x01 \x01(\tR\bplayerId\"]\n" +
 	"\x1cGetPlayerLeaderboardResponse\x12=\n" +
 	"\vleaderboard\x18\x01 \x01(\v2\x1b.leaderboard.v1.LeaderboardR\vleaderboard2\xe0\x01\n" +
 	"\x12leaderboardService\x12c\n" +
