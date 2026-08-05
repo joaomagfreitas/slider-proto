@@ -28,7 +28,7 @@ type Leaderboard struct {
 	EloRating               uint32                 `protobuf:"varint,3,opt,name=elo_rating,json=eloRating,proto3" json:"elo_rating,omitempty"`
 	AverageCompletionTimeMs uint32                 `protobuf:"varint,4,opt,name=average_completion_time_ms,json=averageCompletionTimeMs,proto3" json:"average_completion_time_ms,omitempty"`
 	AverageMoves            uint32                 `protobuf:"varint,5,opt,name=average_moves,json=averageMoves,proto3" json:"average_moves,omitempty"`
-	CompletedMoves          uint32                 `protobuf:"varint,6,opt,name=completed_moves,json=completedMoves,proto3" json:"completed_moves,omitempty"`
+	CompletedPuzzles        uint32                 `protobuf:"varint,6,opt,name=completed_puzzles,json=completedPuzzles,proto3" json:"completed_puzzles,omitempty"`
 	unknownFields           protoimpl.UnknownFields
 	sizeCache               protoimpl.SizeCache
 }
@@ -98,9 +98,9 @@ func (x *Leaderboard) GetAverageMoves() uint32 {
 	return 0
 }
 
-func (x *Leaderboard) GetCompletedMoves() uint32 {
+func (x *Leaderboard) GetCompletedPuzzles() uint32 {
 	if x != nil {
-		return x.CompletedMoves
+		return x.CompletedPuzzles
 	}
 	return 0
 }
@@ -277,7 +277,7 @@ var File_proto_leaderboard_v1_leaderboard_proto protoreflect.FileDescriptor
 
 const file_proto_leaderboard_v1_leaderboard_proto_rawDesc = "" +
 	"\n" +
-	"&proto/leaderboard/v1/leaderboard.proto\x12\x0eleaderboard.v1\"\xec\x01\n" +
+	"&proto/leaderboard/v1/leaderboard.proto\x12\x0eleaderboard.v1\"\xf0\x01\n" +
 	"\vLeaderboard\x12\x12\n" +
 	"\x04rank\x18\x01 \x01(\rR\x04rank\x12\x1f\n" +
 	"\vplayer_name\x18\x02 \x01(\tR\n" +
@@ -285,8 +285,8 @@ const file_proto_leaderboard_v1_leaderboard_proto_rawDesc = "" +
 	"\n" +
 	"elo_rating\x18\x03 \x01(\rR\teloRating\x12;\n" +
 	"\x1aaverage_completion_time_ms\x18\x04 \x01(\rR\x17averageCompletionTimeMs\x12#\n" +
-	"\raverage_moves\x18\x05 \x01(\rR\faverageMoves\x12'\n" +
-	"\x0fcompleted_moves\x18\x06 \x01(\rR\x0ecompletedMoves\"\x1e\n" +
+	"\raverage_moves\x18\x05 \x01(\rR\faverageMoves\x12+\n" +
+	"\x11completed_puzzles\x18\x06 \x01(\rR\x10completedPuzzles\"\x1e\n" +
 	"\x1cListGlobalLeaderboardRequest\"^\n" +
 	"\x1dListGlobalLeaderboardResponse\x12=\n" +
 	"\vleaderboard\x18\x01 \x03(\v2\x1b.leaderboard.v1.LeaderboardR\vleaderboard\":\n" +

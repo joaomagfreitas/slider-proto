@@ -10,7 +10,7 @@ message Leaderboard {
   uint32 elo_rating = 3;
   uint32 average_completion_time_ms = 4;
   uint32 average_moves = 5;
-  uint32 completed_moves = 6;
+  uint32 completed_puzzles = 6;
 }
 
 message ListGlobalLeaderboardRequest {}
