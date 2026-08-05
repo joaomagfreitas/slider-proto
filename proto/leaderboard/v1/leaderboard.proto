@@ -8,7 +8,7 @@ message Leaderboard {
   uint32 rank = 1;
   string player_name = 2;
   uint32 elo_rating = 3;
-  uint32 average_completion_time_ms = 4;
+  uint64 average_completion_time_ms = 4;
   uint32 average_moves = 5;
   uint32 completed_puzzles = 6;
 }
