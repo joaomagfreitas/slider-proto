@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package player.v1;
+
+option go_package = "github.com/joaomagfreitas/slider-proto/player/v1;player_proto_v1";
+
+message Player {
+  string slug = 1;
+  string name = 2;
+  string avatar_url = 3;
+}
+
+message CreateRandomPlayerRequest {}
+
+message CreateRandomPlayerResponse { Player player = 1; }
+
+service playerService {
+  rpc CreateRandom(CreateRandomPlayerRequest)
+      returns (CreateRandomPlayerResponse);
+}
