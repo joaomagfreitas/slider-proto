@@ -38,9 +38,8 @@ jobs:
           if [[ "${GITHUB_REF}" == refs/tags/* ]]; then
             VERSION="${GITHUB_REF_NAME#v}"
           else
-            COUNT=$(git rev-list --count HEAD)
             SHA=$(git rev-parse --short HEAD)
-            VERSION="0.0.0.${COUNT}.${SHA}"
+            VERSION="0.0.0+${SHA}"
           fi
 
           echo "Publishing version: $VERSION"
