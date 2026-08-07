@@ -8,5 +8,11 @@
   },
   "repository": {
     "url": "https://github.com/joaomagfreitas/slider-proto"
+  },
+  "exports": {
+    "./proto/**/v1/*": {
+      "types": "./proto/**/v1/*.d.ts",
+      "import": "./proto/**/v1/*.js"
+    }
   }
 }
