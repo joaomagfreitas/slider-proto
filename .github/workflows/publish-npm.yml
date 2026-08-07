@@ -39,7 +39,7 @@ jobs:
             VERSION="${GITHUB_REF_NAME#v}"
           else
             SHA=$(git rev-parse --short HEAD)
-            VERSION="0.0.0+${SHA}"
+            VERSION="0.0.0-${SHA}"
           fi
 
           echo "Publishing version: $VERSION"
